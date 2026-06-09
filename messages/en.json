@@ -46,7 +46,11 @@
     "title": "Transformations we've delivered",
     "subtitle": "Real projects. Real impact. Businesses that took the leap — and didn't look back.",
     "coming_soon": "More case studies coming soon.",
-    "view_project": "View project"
+    "view_project": "Visit site",
+    "industry_realestate": "Real Estate",
+    "tognarelli_description": "Tognarelli Propiedades is a luxury real estate firm in Valdivia, Chile. We built their digital platform to connect buyers and renters with exclusive properties — houses, apartments, offices, and land — through a refined, high-performance experience.",
+    "tognarelli_feat1": "Custom property portal with advanced search and filtering",
+    "tognarelli_feat2": "Premium UX designed for high-end real estate clientele"
   },
   "about": {
     "label": "Who we are",

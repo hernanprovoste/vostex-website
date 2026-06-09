@@ -56,10 +56,10 @@ export function Footer() {
               Contact
             </p>
             <a
-              href="mailto:h.provoste@vostex.ai"
+              href="#contact"
               className="text-sm text-[#94A3B8] hover:text-[#00C2FF] transition-colors duration-200 w-fit"
             >
-              h.provoste@vostex.ai
+              Get in touch →
             </a>
             <p className="text-sm text-[#4A5568]">Valdivia, Chile</p>
 
