@@ -6,6 +6,25 @@ import { ArrowUpRight, Home, Star } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import Image from "next/image";
 
+const projects = [
+  {
+    id: "tognarelli",
+    logo: "/assets/tognarelli-logo.svg",
+    logoAlt: "Tognarelli Propiedades",
+    company: "Tognarelli Propiedades",
+    url: "https://tognarelli.cl",
+    urlLabel: "tognarelli.cl",
+    location: "Valdivia, Chile",
+    service: "Vostex Launch",
+    industryKey: "industry_realestate" as const,
+    descriptionKey: "tognarelli_description" as const,
+    features: [
+      { icon: Home, key: "tognarelli_feat1" as const },
+      { icon: Star, key: "tognarelli_feat2" as const },
+    ],
+  },
+];
+
 export function Portfolio() {
   const t = useTranslations("portfolio");
 
@@ -14,7 +33,6 @@ export function Portfolio() {
       id="portfolio"
       className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-[#0D1F3C] relative overflow-hidden"
     >
-      {/* Section texture */}
       <div
         aria-hidden
         className="absolute inset-0 pointer-events-none bg-texture opacity-50"
@@ -37,112 +55,101 @@ export function Portfolio() {
           </p>
         </AnimatedSection>
 
-        {/* Tognarelli featured case */}
-        <AnimatedSection delay={0.1}>
-          <motion.div
-            whileHover={{ borderColor: "rgba(0,194,255,0.25)" }}
-            transition={{ duration: 0.25 }}
-            className="group rounded-2xl border border-[#1A2E4A] bg-[#060D1A] overflow-hidden"
-          >
-            <div className="grid grid-cols-1 lg:grid-cols-2">
-              {/* Logo / Visual side */}
-              <div className="relative flex items-center justify-center p-10 md:p-14 bg-[#0A1520] border-b lg:border-b-0 lg:border-r border-[#1A2E4A] min-h-[260px]">
-                {/* Subtle radial glow */}
-                <div
-                  aria-hidden
-                  className="absolute inset-0 pointer-events-none"
-                  style={{
-                    background:
-                      "radial-gradient(ellipse at center, rgba(178,139,59,0.04) 0%, transparent 65%)",
-                  }}
-                />
-                <motion.div
-                  whileHover={{ scale: 1.03 }}
-                  transition={{ duration: 0.3 }}
-                  className="relative w-full max-w-[320px]"
-                >
-                  <Image
-                    src="/assets/tognarelli-logo.svg"
-                    alt="Tognarelli Propiedades"
-                    width={320}
-                    height={112}
-                    className="w-full h-auto"
-                    priority
+        {/* Grid — 3 cols desktop / 2 tablet / 1 mobile */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {projects.map((project, i) => (
+            <AnimatedSection key={project.id} delay={i * 0.1}>
+              <motion.div
+                whileHover={{ y: -4, borderColor: "rgba(0,194,255,0.3)" }}
+                transition={{ duration: 0.2 }}
+                className="group h-full rounded-xl border border-[#1A2E4A] bg-[#060D1A] overflow-hidden flex flex-col"
+              >
+                {/* Logo area — top */}
+                <div className="relative flex items-center justify-center bg-[#0A1520] px-8 py-8 min-h-[160px]">
+                  <div
+                    aria-hidden
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      background:
+                        "radial-gradient(ellipse at center, rgba(178,139,59,0.05) 0%, transparent 70%)",
+                    }}
                   />
-                </motion.div>
+                  <Image
+                    src={project.logo}
+                    alt={project.logoAlt}
+                    width={220}
+                    height={80}
+                    className="relative w-full max-w-[200px] h-auto object-contain"
+                  />
+                </div>
 
-                {/* Industry tag */}
-                <span className="absolute bottom-5 left-5 text-[10px] font-semibold uppercase tracking-wider text-[#00C2FF] border border-[#00C2FF]/20 bg-[#00C2FF]/5 px-2 py-1 rounded-full">
-                  {t("industry_realestate")}
-                </span>
-              </div>
-
-              {/* Content side */}
-              <div className="p-8 md:p-10 flex flex-col gap-5 justify-between">
-                <div className="flex flex-col gap-4">
-                  {/* Service badge */}
-                  <span className="text-[10px] font-semibold uppercase tracking-wider text-[#00C2FF] border border-[#00C2FF]/20 bg-[#00C2FF]/5 px-2 py-1 rounded-full w-fit">
-                    Vostex Launch
+                {/* Content — below logo */}
+                <div className="flex flex-col gap-3 p-5 flex-1">
+                  {/* Industry badge — directly below logo */}
+                  <span className="text-[10px] font-semibold uppercase tracking-wider text-[#00C2FF] border border-[#00C2FF]/20 bg-[#00C2FF]/5 px-2 py-0.5 rounded-full w-fit">
+                    {t(project.industryKey)}
                   </span>
 
+                  {/* Service */}
+                  <span className="text-[10px] font-medium text-[#4A5568] uppercase tracking-wider">
+                    {project.service}
+                  </span>
+
+                  {/* Company name + location */}
                   <div>
                     <h3
-                      className="text-xl md:text-2xl font-bold text-white mb-1"
+                      className="text-base font-bold text-white"
                       style={{ fontFamily: "var(--font-space-grotesk)" }}
                     >
-                      Tognarelli Propiedades
+                      {project.company}
                     </h3>
-                    <p className="text-sm text-[#4A5568] font-medium">
-                      tognarelli.cl · Valdivia, Chile
+                    <p className="text-xs text-[#4A5568] mt-0.5">
+                      {project.urlLabel} · {project.location}
                     </p>
                   </div>
 
-                  <p className="text-[#94A3B8] text-sm leading-relaxed">
-                    {t("tognarelli_description")}
+                  {/* Description */}
+                  <p className="text-sm text-[#94A3B8] leading-relaxed">
+                    {t(project.descriptionKey)}
                   </p>
 
-                  {/* Highlights */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-1">
-                    {[
-                      { icon: Home, text: t("tognarelli_feat1") },
-                      { icon: Star, text: t("tognarelli_feat2") },
-                    ].map(({ icon: Icon, text }, i) => (
+                  {/* Feature pills */}
+                  <div className="flex flex-col gap-2 mt-1">
+                    {project.features.map(({ icon: Icon, key }) => (
                       <div
-                        key={i}
-                        className="flex items-start gap-2 rounded-lg bg-[#0D1F3C] border border-[#1A2E4A] p-3"
+                        key={key}
+                        className="flex items-start gap-2 rounded-lg bg-[#0D1F3C] border border-[#1A2E4A] px-3 py-2"
                       >
                         <Icon
-                          size={14}
+                          size={12}
                           className="text-[#00C2FF] mt-0.5 shrink-0"
                           strokeWidth={1.5}
                         />
-                        <span className="text-xs text-[#94A3B8] leading-relaxed">
-                          {text}
-                        </span>
+                        <span className="text-xs text-[#94A3B8]">{t(key)}</span>
                       </div>
                     ))}
                   </div>
+
+                  {/* CTA */}
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 text-xs font-medium text-[#4A5568] group-hover:text-[#00C2FF] transition-colors mt-auto pt-3 w-fit"
+                  >
+                    {t("view_project")}
+                    <ArrowUpRight
+                      size={12}
+                      className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+                    />
+                  </a>
                 </div>
+              </motion.div>
+            </AnimatedSection>
+          ))}
+        </div>
 
-                {/* CTA */}
-                <a
-                  href="https://tognarelli.cl"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-sm font-medium text-[#4A5568] hover:text-[#00C2FF] transition-colors mt-2 w-fit group/link"
-                >
-                  {t("view_project")}
-                  <ArrowUpRight
-                    size={14}
-                    className="group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform"
-                  />
-                </a>
-              </div>
-            </div>
-          </motion.div>
-        </AnimatedSection>
-
-        <AnimatedSection className="text-center mt-10" delay={0.3}>
+        <AnimatedSection className="text-center mt-10" delay={0.2}>
           <p className="text-sm text-[#4A5568] italic">{t("coming_soon")}</p>
         </AnimatedSection>
       </div>
