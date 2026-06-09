@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+@theme {
+  /* === VOSTEX BRAND COLORS (Manual v1.0) === */
+  --color-navy: #0D1F3C;
+  --color-dark: #060D1A;
+  --color-cyan: #00C2FF;
+  --color-cyan-hover: #0090C8;
+  --color-cyan-glow: rgba(0, 194, 255, 0.15);
+  --color-platinum: #E8ECF0;
+  --color-slate: #4A5568;
+  --color-white: #FFFFFF;
+
+  /* Surface variants */
+  --color-surface: #0D1F3C;
+  --color-surface-elevated: #132743;
+  --color-border: #1A2E4A;
+  --color-border-subtle: #0F2035;
+
+  /* Text */
+  --color-text-primary: #FFFFFF;
+  --color-text-muted: #94A3B8;
+  --color-text-dark: #0D1F3C;
+
+  /* === TYPOGRAPHY === */
+  --font-display: var(--font-space-grotesk), system-ui, sans-serif;
+  --font-body: var(--font-inter), system-ui, sans-serif;
+
+  /* === SPACING SCALE (4pt base) === */
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-10: 2.5rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+  --spacing-20: 5rem;
+  --spacing-24: 6rem;
+  --spacing-32: 8rem;
+
+  /* === BREAKPOINTS (mobile-first) === */
+  --breakpoint-xs: 375px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1440px;
+
+  /* === ANIMATION === */
+  --animate-duration-fast: 150ms;
+  --animate-duration-normal: 250ms;
+  --animate-duration-slow: 350ms;
+}
+
+/* Base styles */
+:root {
+  --background: #060D1A;
+  --foreground: #FFFFFF;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Diagonal texture pattern (from brand manual — max 4% opacity) */
+.bg-texture {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 20px,
+    rgba(0, 194, 255, 0.02) 20px,
+    rgba(0, 194, 255, 0.02) 21px
+  );
+}
+
+/* Cyan glow utilities */
+.glow-cyan {
+  box-shadow: 0 0 20px rgba(0, 194, 255, 0.2), 0 0 40px rgba(0, 194, 255, 0.1);
+}
+
+.glow-cyan-sm {
+  box-shadow: 0 0 10px rgba(0, 194, 255, 0.15);
+}
+
+.text-glow-cyan {
+  text-shadow: 0 0 20px rgba(0, 194, 255, 0.4);
+}
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid #00C2FF;
+  outline-offset: 2px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #060D1A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1A2E4A;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00C2FF;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "nav": {
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "about": "About",
+    "contact": "Contact",
+    "cta": "Get in touch"
+  },
+  "hero": {
+    "headline": "Beyond the digital gap.",
+    "subheadline": "We build software that transforms. AI that decides.",
+    "cta_primary": "See our work",
+    "cta_secondary": "Meet Vostex",
+    "scroll": "Scroll to explore"
+  },
+  "services": {
+    "label": "What we build",
+    "title": "Solutions built to scale",
+    "subtitle": "From custom software to AI-powered decisions — we cover every stage of your digital transformation.",
+    "items": {
+      "build": {
+        "name": "Vostex Build",
+        "tagline": "Custom Software Development",
+        "description": "Tailored software solutions designed around your business processes. From web apps to enterprise systems — built to last and grow with you.",
+        "badge": "Most popular"
+      },
+      "intel": {
+        "name": "Vostex Intel",
+        "tagline": "AI-Powered Decision Intelligence",
+        "description": "We integrate artificial intelligence into your operations so your business makes better decisions, faster — with real data."
+      },
+      "flow": {
+        "name": "Vostex Flow",
+        "tagline": "Process Automation",
+        "description": "Eliminate repetitive manual tasks. We automate your workflows so your team focuses on what truly matters."
+      },
+      "launch": {
+        "name": "Vostex Launch",
+        "tagline": "Digital Presence",
+        "description": "High-performance websites and e-commerce platforms. Your brand online, built to convert and built to impress."
+      }
+    }
+  },
+  "portfolio": {
+    "label": "Our work",
+    "title": "Transformations we've delivered",
+    "subtitle": "Real projects. Real impact. Businesses that took the leap — and didn't look back.",
+    "coming_soon": "More case studies coming soon.",
+    "view_project": "View project"
+  },
+  "about": {
+    "label": "Who we are",
+    "title": "The partner your business deserves",
+    "description": "VOSTEX was born from a simple belief: every business deserves technology that actually works for them. We're not just a software vendor — we're the expert mentor that walks alongside your transformation.",
+    "origin": "The name VOSTEX combines Provoste (our founder's surname) with the Latin suffix -ex — meaning advance, going beyond. Together: the leap forward.",
+    "values": {
+      "reliability": {
+        "title": "Reliability",
+        "description": "We deliver what we promise, on time, and stay with you after launch."
+      },
+      "versatility": {
+        "title": "Versatility",
+        "description": "We adapt to any industry, company size, and level of digital maturity."
+      },
+      "scalability": {
+        "title": "Scalability",
+        "description": "What we build today supports tomorrow. Every solution is designed to grow."
+      },
+      "accessibility": {
+        "title": "Accessibility",
+        "description": "We make complex technology understandable and adoptable for non-technical users."
+      }
+    },
+    "stats": {
+      "projects": "Projects delivered",
+      "industries": "Industries served",
+      "countries": "Countries",
+      "satisfaction": "Client satisfaction"
+    },
+    "founder": "Founded by Hernán Provoste · Valdivia, Chile"
+  },
+  "contact": {
+    "label": "Get in touch",
+    "title": "Let's build something.",
+    "subtitle": "Tell us about your project. We'll get back to you within 24 hours.",
+    "form": {
+      "name": "Full name",
+      "name_placeholder": "Your name",
+      "email": "Email address",
+      "email_placeholder": "you@company.com",
+      "company": "Company",
+      "company_placeholder": "Your company name",
+      "message": "Message",
+      "message_placeholder": "Tell us about your project, challenges, or goals...",
+      "submit": "Send message",
+      "submitting": "Sending...",
+      "success": "Message sent! We'll be in touch soon.",
+      "error": "Something went wrong. Please try again.",
+      "required": "required"
+    }
+  },
+  "footer": {
+    "crafted": "Crafted in Valdivia, Chile",
+    "rights": "All rights reserved.",
+    "links": {
+      "services": "Services",
+      "portfolio": "Portfolio",
+      "about": "About",
+      "contact": "Contact"
+    }
+  }
+}

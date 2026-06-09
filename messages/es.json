@@ -1,0 +1,112 @@
+{
+  "nav": {
+    "services": "Servicios",
+    "portfolio": "Portafolio",
+    "about": "Nosotros",
+    "contact": "Contacto",
+    "cta": "Contáctanos"
+  },
+  "hero": {
+    "headline": "Tu empresa, en la era que le corresponde.",
+    "subheadline": "Software que transforma. IA que decide.",
+    "cta_primary": "Ver nuestro trabajo",
+    "cta_secondary": "Conocer Vostex",
+    "scroll": "Explorar"
+  },
+  "services": {
+    "label": "Lo que construimos",
+    "title": "Soluciones diseñadas para escalar",
+    "subtitle": "Desde software a medida hasta decisiones con IA — cubrimos cada etapa de tu transformación digital.",
+    "items": {
+      "build": {
+        "name": "Vostex Build",
+        "tagline": "Desarrollo de Software a Medida",
+        "description": "Soluciones de software diseñadas según tus procesos de negocio. Desde aplicaciones web hasta sistemas empresariales — construidos para durar y crecer contigo.",
+        "badge": "Más popular"
+      },
+      "intel": {
+        "name": "Vostex Intel",
+        "tagline": "Inteligencia Artificial para Decisiones",
+        "description": "Integramos inteligencia artificial en tus operaciones para que tu negocio tome mejores decisiones, más rápido — con datos reales."
+      },
+      "flow": {
+        "name": "Vostex Flow",
+        "tagline": "Automatización de Procesos",
+        "description": "Elimina las tareas manuales repetitivas. Automatizamos tus flujos de trabajo para que tu equipo se enfoque en lo que realmente importa."
+      },
+      "launch": {
+        "name": "Vostex Launch",
+        "tagline": "Presencia Digital",
+        "description": "Sitios web y plataformas de e-commerce de alto rendimiento. Tu marca en línea, construida para convertir e impresionar."
+      }
+    }
+  },
+  "portfolio": {
+    "label": "Nuestro trabajo",
+    "title": "Transformaciones que hemos entregado",
+    "subtitle": "Proyectos reales. Impacto real. Empresas que dieron el salto — y no miraron atrás.",
+    "coming_soon": "Más casos de éxito próximamente.",
+    "view_project": "Ver proyecto"
+  },
+  "about": {
+    "label": "Quiénes somos",
+    "title": "El socio tecnológico que tu empresa merece",
+    "description": "VOSTEX nació de una creencia simple: toda empresa merece tecnología que realmente funcione para ella. No somos solo un proveedor de software — somos el mentor experto que acompaña tu transformación.",
+    "origin": "El nombre VOSTEX combina Provoste (apellido de nuestro fundador) con el sufijo latino -ex — que significa avance, ir más allá. Juntos: el salto hacia adelante.",
+    "values": {
+      "reliability": {
+        "title": "Confiabilidad",
+        "description": "Cumplimos lo que prometemos, entregamos a tiempo y acompañamos después del lanzamiento."
+      },
+      "versatility": {
+        "title": "Versatilidad",
+        "description": "Nos adaptamos a cualquier industria, tamaño de empresa y nivel de madurez digital."
+      },
+      "scalability": {
+        "title": "Escalabilidad",
+        "description": "Lo que construimos hoy soporta el mañana. Cada solución está diseñada para crecer."
+      },
+      "accessibility": {
+        "title": "Accesibilidad Técnica",
+        "description": "Hacemos que la tecnología compleja sea comprensible y adoptable para usuarios no técnicos."
+      }
+    },
+    "stats": {
+      "projects": "Proyectos entregados",
+      "industries": "Industrias atendidas",
+      "countries": "Países",
+      "satisfaction": "Satisfacción del cliente"
+    },
+    "founder": "Fundado por Hernán Provoste · Valdivia, Chile"
+  },
+  "contact": {
+    "label": "Contáctanos",
+    "title": "Construyamos algo juntos.",
+    "subtitle": "Cuéntanos sobre tu proyecto. Te respondemos en menos de 24 horas.",
+    "form": {
+      "name": "Nombre completo",
+      "name_placeholder": "Tu nombre",
+      "email": "Correo electrónico",
+      "email_placeholder": "tu@empresa.com",
+      "company": "Empresa",
+      "company_placeholder": "Nombre de tu empresa",
+      "message": "Mensaje",
+      "message_placeholder": "Cuéntanos sobre tu proyecto, desafíos u objetivos...",
+      "submit": "Enviar mensaje",
+      "submitting": "Enviando...",
+      "success": "¡Mensaje enviado! Te contactamos pronto.",
+      "error": "Algo salió mal. Por favor intenta nuevamente.",
+      "required": "requerido"
+    }
+  },
+  "footer": {
+    "crafted": "Construido en Valdivia, Chile",
+    "rights": "Todos los derechos reservados.",
+    "links": {
+      "services": "Servicios",
+      "portfolio": "Portafolio",
+      "about": "Nosotros",
+      "contact": "Contacto"
+    }
+  }
+}
