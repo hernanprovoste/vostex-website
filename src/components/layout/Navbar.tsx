@@ -32,11 +32,14 @@ export function Navbar() {
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
+  // Light navbar once scrolled (body sections are light); transparent over the dark hero at top
+  const light = scrolled;
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#060D1A]/95 backdrop-blur-md border-b border-[#1A2E4A]"
+          ? "bg-white/95 backdrop-blur-md border-b border-[#0D1F3C]/10"
           : "bg-transparent"
       }`}
     >
@@ -49,7 +52,7 @@ export function Navbar() {
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >
           <Image
-            src="/assets/logo-white.svg"
+            src={light ? "/assets/logo-color.svg" : "/assets/logo-white.svg"}
             alt="VOSTEX"
             width={120}
             height={30}
@@ -64,7 +67,11 @@ export function Navbar() {
             <button
               key={link.key}
               onClick={() => handleNavClick(link.href)}
-              className="text-sm font-medium text-[#94A3B8] hover:text-white transition-colors duration-200 cursor-pointer"
+              className={`text-sm font-medium transition-colors duration-200 cursor-pointer ${
+                light
+                  ? "text-[#4A5568] hover:text-[#0D1F3C]"
+                  : "text-[#94A3B8] hover:text-white"
+              }`}
             >
               {t(link.key)}
             </button>
@@ -73,7 +80,7 @@ export function Navbar() {
 
         {/* Right side: lang toggle + CTA */}
         <div className="hidden md:flex items-center gap-3">
-          <LanguageToggle />
+          <LanguageToggle appearance={light ? "light" : "dark"} />
           <GlowButton
             variant="primary"
             onClick={() => handleNavClick("#contact")}
@@ -85,10 +92,14 @@ export function Navbar() {
 
         {/* Mobile: lang + hamburger */}
         <div className="flex md:hidden items-center gap-2">
-          <LanguageToggle />
+          <LanguageToggle appearance={light ? "light" : "dark"} />
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="p-2 text-[#94A3B8] hover:text-white transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
+            className={`p-2 transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center ${
+              light
+                ? "text-[#4A5568] hover:text-[#0D1F3C]"
+                : "text-[#94A3B8] hover:text-white"
+            }`}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
           >
             {mobileOpen ? <X size={20} /> : <Menu size={20} />}
@@ -96,7 +107,7 @@ export function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile drawer */}
+      {/* Mobile drawer — always light */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -104,7 +115,7 @@ export function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="md:hidden bg-[#060D1A]/98 backdrop-blur-md border-b border-[#1A2E4A] overflow-hidden"
+            className="md:hidden bg-white/98 backdrop-blur-md border-b border-[#0D1F3C]/10 overflow-hidden"
           >
             <div className="px-4 py-6 flex flex-col gap-4">
               {navLinks.map((link, i) => (
@@ -114,7 +125,7 @@ export function Navbar() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.05 }}
                   onClick={() => handleNavClick(link.href)}
-                  className="text-base font-medium text-[#94A3B8] hover:text-white text-left py-2 transition-colors cursor-pointer"
+                  className="text-base font-medium text-[#4A5568] hover:text-[#0D1F3C] text-left py-2 transition-colors cursor-pointer"
                 >
                   {t(link.key)}
                 </motion.button>

@@ -29,8 +29,8 @@ export function Footer() {
               className="h-7 w-auto"
             />
             <p className="text-sm text-[#4A5568] leading-relaxed max-w-[260px]">
-              Beyond the digital gap. <br />
-              Software que transforma. IA que decide.
+              Engineered systems for real-world operations. <br />
+              Sistemas de software para operaciones reales.
             </p>
           </div>
 
@@ -92,7 +92,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-[#1A2E4A] pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-[#4A5568]">
-            {t("crafted")} · vostex.ai
+            {t("crafted")} · vostex.io
           </p>
           <p className="text-xs text-[#4A5568]">
             © {year} VOSTEX. {t("rights")}

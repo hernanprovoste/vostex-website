@@ -7,56 +7,101 @@
     "cta": "Contáctanos"
   },
   "hero": {
-    "headline": "Tu empresa, en la era que le corresponde.",
-    "subheadline": "Software que transforma. IA que decide.",
-    "cta_primary": "Ver nuestro trabajo",
-    "cta_secondary": "Conocer Vostex",
+    "headline": "Sistemas de software para operaciones reales.",
+    "subheadline": "Sistemas de software que ordenan, automatizan y escalan tu operación.",
+    "cta_primary": "Agenda una reunión estratégica",
+    "cta_secondary": "Ver nuestro trabajo",
     "scroll": "Explorar"
+  },
+  "problem": {
+    "label": "El problema",
+    "title": "Tu operación creció más que sus herramientas.",
+    "pains": {
+      "spreadsheets": {
+        "title": "Planillas sosteniendo procesos críticos",
+        "description": "Pedidos, inventario y clientes manejados a mano, en archivos que solo una persona entiende del todo."
+      },
+      "visibility": {
+        "title": "Cero visibilidad en tiempo real",
+        "description": "Te enteras de los problemas cuando ya son costosos — no cuando los datos los mostraban."
+      },
+      "keypeople": {
+        "title": "Todo depende de personas clave",
+        "description": "Los procesos viven en la cabeza de alguien. Si esa persona falta, la operación se frena."
+      }
+    },
+    "bridge": "El software genérico te obliga a trabajar a su manera. Nosotros construimos sistemas que trabajan a la tuya."
   },
   "services": {
     "label": "Lo que construimos",
     "title": "Soluciones diseñadas para escalar",
-    "subtitle": "Desde software a medida hasta decisiones con IA — cubrimos cada etapa de tu transformación digital.",
+    "subtitle": "Desde sistemas internos y portales hasta automatización y herramientas de decisión — construimos la columna vertebral de software que sostiene tu operación y tu crecimiento.",
     "items": {
       "build": {
         "name": "Vostex Build",
-        "tagline": "Desarrollo de Software a Medida",
-        "description": "Soluciones de software diseñadas según tus procesos de negocio. Desde aplicaciones web hasta sistemas empresariales — construidos para durar y crecer contigo.",
-        "badge": "Más popular"
+        "tagline": "Sistemas y Plataformas a Medida",
+        "description": "Diseñamos y construimos sistemas internos, backends y portales según cómo tu negocio realmente funciona — no al revés. Desde herramientas operativas hasta plataformas para clientes, pensadas para durar y crecer.",
+        "badge": "Servicio principal"
       },
       "intel": {
         "name": "Vostex Intel",
-        "tagline": "Inteligencia Artificial para Decisiones",
-        "description": "Integramos inteligencia artificial en tus operaciones para que tu negocio tome mejores decisiones, más rápido — con datos reales."
+        "tagline": "Sistemas de Decisión y Datos",
+        "description": "Convertimos tus datos operativos en decisiones claras: dashboards, alertas y asistentes internos que ayudan a tu equipo a actuar más rápido y con confianza. Cuando la IA suma, la usamos — siempre dentro de sistemas sólidos."
       },
       "flow": {
         "name": "Vostex Flow",
-        "tagline": "Automatización de Procesos",
-        "description": "Elimina las tareas manuales repetitivas. Automatizamos tus flujos de trabajo para que tu equipo se enfoque en lo que realmente importa."
+        "tagline": "Automatización y Orquestación de Procesos",
+        "description": "Automatizamos el trabajo repetitivo y conectamos las herramientas que ya usas. Workflows, integraciones y bots que mantienen tus procesos en movimiento para que tu equipo se enfoque en lo importante."
       },
       "launch": {
         "name": "Vostex Launch",
-        "tagline": "Presencia Digital",
-        "description": "Sitios web y plataformas de e-commerce de alto rendimiento. Tu marca en línea, construida para convertir e impresionar."
+        "tagline": "Producto y Experiencia Digital",
+        "description": "Sitios, portales y experiencias digitales que se apoyan en tus sistemas. Interfaces claras, rápidas y confiables para que clientes y equipos interactúen mejor con tu negocio."
+      }
+    }
+  },
+  "process": {
+    "label": "Cómo trabajamos",
+    "title": "Un proceso claro, desde el día uno",
+    "subtitle": "Sin cajas negras. Sabes qué estamos construyendo, por qué y cómo avanza — en cada etapa.",
+    "steps": {
+      "diagnose": {
+        "title": "Diagnóstico y mapeo",
+        "description": "Nos sentamos con tu equipo y mapeamos cómo funciona realmente tu operación: procesos, herramientas, cuellos de botella y datos."
+      },
+      "design": {
+        "title": "Diseño del sistema",
+        "description": "Te proponemos una arquitectura y un plan en lenguaje claro, con prioridades y alcances que puedes cuestionar."
+      },
+      "build": {
+        "title": "Construcción iterativa",
+        "description": "Entregamos software funcionando en ciclos cortos. Ves el avance en tu operación real, no en presentaciones."
+      },
+      "launch": {
+        "title": "Lanzamiento y acompañamiento",
+        "description": "Capacitamos a tu equipo, monitoreamos la adopción y seguimos contigo después del lanzamiento."
       }
     }
   },
   "portfolio": {
     "label": "Nuestro trabajo",
-    "title": "Transformaciones que hemos entregado",
-    "subtitle": "Proyectos reales. Impacto real. Empresas que dieron el salto — y no miraron atrás.",
-    "coming_soon": "Más casos de éxito próximamente.",
-    "view_project": "Visitar sitio",
+    "title": "Sistemas que ya hemos entregado",
+    "subtitle": "Proyectos reales. Impacto real. Empresas que pasaron de planillas y herramientas dispersas a software propio, diseñado para su operación.",
+    "coming_soon": "Más casos de estudio próximamente.",
+    "view_project": "Ver sitio",
     "industry_realestate": "Bienes Raíces",
     "tognarelli_description": "Tognarelli Propiedades es una corredora de propiedades de lujo en Valdivia, Chile. Desarrollamos su plataforma digital para conectar compradores y arrendatarios con propiedades exclusivas — casas, departamentos, oficinas y terrenos — a través de una experiencia premium y de alto rendimiento.",
     "tognarelli_feat1": "Portal de propiedades con búsqueda avanzada y filtros personalizados",
-    "tognarelli_feat2": "UX premium diseñado para clientes de bienes raíces de alto nivel"
+    "tognarelli_feat2": "UX premium diseñado para clientes de bienes raíces de alto nivel",
+    "testimonial": "VOSTEX entendió nuestro negocio desde el primer día. La plataforma refleja el nivel de servicio que queremos dar a cada cliente, y gestionar nuestras propiedades hoy es mucho más simple para el equipo.",
+    "testimonial_author": "Tognarelli Propiedades",
+    "testimonial_role": "Valdivia, Chile"
   },
   "about": {
     "label": "Quiénes somos",
     "title": "El socio tecnológico que tu empresa merece",
-    "description": "VOSTEX nació de una creencia simple: toda empresa merece tecnología que realmente funcione para ella. No somos solo un proveedor de software — somos el mentor experto que acompaña tu transformación.",
-    "origin": "El nombre VOSTEX combina Provoste (apellido de nuestro fundador) con el sufijo latino -ex — que significa avance, ir más allá. Juntos: el salto hacia adelante.",
+    "description": "VOSTEX es un estudio de ingeniería de software nacido de una idea simple: toda empresa merece tecnología que de verdad le funcione. No somos solo un proveedor de software; somos el mentor experto que acompaña tu transformación.",
+    "values_label": "Nuestros valores",
     "values": {
       "reliability": {
         "title": "Confiabilidad",
@@ -64,7 +109,7 @@
       },
       "versatility": {
         "title": "Versatilidad",
-        "description": "Nos adaptamos a cualquier industria, tamaño de empresa y nivel de madurez digital."
+        "description": "Nos adaptamos a distintas industrias, tamaños de empresa y niveles de madurez digital."
       },
       "scalability": {
         "title": "Escalabilidad",
@@ -73,20 +118,37 @@
       "accessibility": {
         "title": "Accesibilidad Técnica",
         "description": "Hacemos que la tecnología compleja sea comprensible y adoptable para usuarios no técnicos."
+      },
+      "transformation": {
+        "title": "Transformación Real",
+        "description": "No entregamos solo código: cambiamos cómo tu equipo trabaja, decide y controla la operación día a día."
       }
     },
-    "stats": {
-      "projects": "Proyectos entregados",
-      "industries": "Industrias atendidas",
-      "countries": "Países",
-      "satisfaction": "Satisfacción del cliente"
+    "commitments_label": "Lo que puedes esperar",
+    "commitments": {
+      "response": {
+        "title": "Respuesta en menos de 24 horas",
+        "description": "Cada mensaje recibe una respuesta real de un ingeniero, no de un autoresponder."
+      },
+      "support": {
+        "title": "Acompañamiento post-lanzamiento",
+        "description": "No desaparecemos al entregar. Capacitación, monitoreo y evolución son parte del trabajo."
+      },
+      "ownership": {
+        "title": "Todo es tuyo",
+        "description": "El código, los datos y la infraestructura te pertenecen. Sin amarres ni sistemas rehenes."
+      },
+      "clarity": {
+        "title": "Lenguaje claro",
+        "description": "Te explicamos las decisiones técnicas con claridad, para que puedas tomarlas con nosotros."
+      }
     },
     "founder": "Fundado por Hernán Provoste · Valdivia, Chile"
   },
   "contact": {
-    "label": "Contáctanos",
+    "label": "Contacto",
     "title": "Construyamos algo juntos.",
-    "subtitle": "Cuéntanos sobre tu proyecto. Te respondemos en menos de 24 horas.",
+    "subtitle": "Cuéntanos cómo funciona hoy tu operación y hasta dónde quieres llegar. Mapeamos tus sistemas y te proponemos un primer paso — sin compromiso.",
     "form": {
       "name": "Nombre completo",
       "name_placeholder": "Tu nombre",
@@ -95,7 +157,7 @@
       "company": "Empresa",
       "company_placeholder": "Nombre de tu empresa",
       "message": "Mensaje",
-      "message_placeholder": "Cuéntanos sobre tu proyecto, desafíos u objetivos...",
+      "message_placeholder": "Cuéntanos sobre tu proyecto, procesos y objetivos.",
       "submit": "Enviar mensaje",
       "submitting": "Enviando...",
       "success": "¡Mensaje enviado! Te contactamos pronto.",

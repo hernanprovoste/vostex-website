@@ -7,56 +7,101 @@
     "cta": "Get in touch"
   },
   "hero": {
-    "headline": "Beyond the digital gap.",
-    "subheadline": "We build software that transforms. AI that decides.",
-    "cta_primary": "See our work",
-    "cta_secondary": "Meet Vostex",
+    "headline": "Engineered systems for real-world operations.",
+    "subheadline": "We design and build custom software, platforms and automations so your business can run with clarity, speed and control.",
+    "cta_primary": "Book a strategy call",
+    "cta_secondary": "See our work",
     "scroll": "Scroll to explore"
+  },
+  "problem": {
+    "label": "The problem",
+    "title": "Your operation has outgrown its tools.",
+    "pains": {
+      "spreadsheets": {
+        "title": "Spreadsheets running critical processes",
+        "description": "Orders, inventory and clients tracked by hand, in files that only one person fully understands."
+      },
+      "visibility": {
+        "title": "No real-time visibility",
+        "description": "You find out about problems when they're already expensive — not when the data first showed them."
+      },
+      "keypeople": {
+        "title": "Everything depends on key people",
+        "description": "Processes live in someone's head. When that person is out, the operation slows down."
+      }
+    },
+    "bridge": "Generic software forces you to work its way. We build systems that work yours."
   },
   "services": {
     "label": "What we build",
     "title": "Solutions built to scale",
-    "subtitle": "From custom software to AI-powered decisions — we cover every stage of your digital transformation.",
+    "subtitle": "From internal systems and portals to automation and decision tools — we build the software backbone that supports your operations and growth.",
     "items": {
       "build": {
         "name": "Vostex Build",
-        "tagline": "Custom Software Development",
-        "description": "Tailored software solutions designed around your business processes. From web apps to enterprise systems — built to last and grow with you.",
-        "badge": "Most popular"
+        "tagline": "Custom Systems & Platforms",
+        "description": "We design and build internal systems, backends and portals around the way your business actually works — not the other way around. From operational tools to client-facing platforms, engineered to last and to grow.",
+        "badge": "Core service"
       },
       "intel": {
         "name": "Vostex Intel",
-        "tagline": "AI-Powered Decision Intelligence",
-        "description": "We integrate artificial intelligence into your operations so your business makes better decisions, faster — with real data."
+        "tagline": "Decision Systems & Data",
+        "description": "We turn your operational data into clear decisions: dashboards, alerts and internal assistants that help your team act faster and with confidence. When AI makes a difference, we use it — but always inside robust systems."
       },
       "flow": {
         "name": "Vostex Flow",
-        "tagline": "Process Automation",
-        "description": "Eliminate repetitive manual tasks. We automate your workflows so your team focuses on what truly matters."
+        "tagline": "Process Automation & Orchestration",
+        "description": "We automate repetitive work and connect the tools you already use. Workflows, integrations and bots that keep your processes moving so your team can focus on what truly matters."
       },
       "launch": {
         "name": "Vostex Launch",
-        "tagline": "Digital Presence",
-        "description": "High-performance websites and e-commerce platforms. Your brand online, built to convert and built to impress."
+        "tagline": "Digital Product & Experience",
+        "description": "Websites, portals and digital experiences that sit on top of your systems. Clear, fast and trustworthy interfaces that help customers and teams interact with your business."
+      }
+    }
+  },
+  "process": {
+    "label": "How we work",
+    "title": "A clear process, from day one",
+    "subtitle": "No black boxes. You know what we're building, why, and how it's going — at every step.",
+    "steps": {
+      "diagnose": {
+        "title": "Diagnose & map",
+        "description": "We sit down with your team and map how your operation actually runs: processes, tools, bottlenecks and data."
+      },
+      "design": {
+        "title": "Design the system",
+        "description": "We propose an architecture and a roadmap in plain language, with priorities and scope you can challenge."
+      },
+      "build": {
+        "title": "Build in iterations",
+        "description": "We ship working software in short cycles. You see progress in your real operation, not in slide decks."
+      },
+      "launch": {
+        "title": "Launch & stay",
+        "description": "We train your team, monitor adoption and stay after launch. Systems evolve — so does our support."
       }
     }
   },
   "portfolio": {
     "label": "Our work",
-    "title": "Transformations we've delivered",
-    "subtitle": "Real projects. Real impact. Businesses that took the leap — and didn't look back.",
+    "title": "Systems we've shipped",
+    "subtitle": "Real projects. Real impact. Businesses that moved from spreadsheets and scattered tools to software they actually own.",
     "coming_soon": "More case studies coming soon.",
     "view_project": "Visit site",
     "industry_realestate": "Real Estate",
-    "tognarelli_description": "Tognarelli Propiedades is a luxury real estate firm in Valdivia, Chile. We built their digital platform to connect buyers and renters with exclusive properties — houses, apartments, offices, and land — through a refined, high-performance experience.",
+    "tognarelli_description": "Tognarelli Propiedades is a luxury real estate firm in Valdivia, Chile. We built their digital platform to connect buyers and renters with exclusive properties — houses, apartments, offices and land — through a refined, high-performance experience.",
     "tognarelli_feat1": "Custom property portal with advanced search and filtering",
-    "tognarelli_feat2": "Premium UX designed for high-end real estate clientele"
+    "tognarelli_feat2": "Premium UX designed for high-end real estate clientele",
+    "testimonial": "VOSTEX understood our business from day one. The platform reflects the level of service we want to give every client, and managing our properties is now far simpler for the team.",
+    "testimonial_author": "Tognarelli Propiedades",
+    "testimonial_role": "Valdivia, Chile"
   },
   "about": {
     "label": "Who we are",
     "title": "The partner your business deserves",
-    "description": "VOSTEX was born from a simple belief: every business deserves technology that actually works for them. We're not just a software vendor — we're the expert mentor that walks alongside your transformation.",
-    "origin": "The name VOSTEX combines Provoste (our founder's surname) with the Latin suffix -ex — meaning advance, going beyond. Together: the leap forward.",
+    "description": "VOSTEX is a software engineering studio born from a simple belief: every business deserves technology that actually works for them. We're not just a software vendor — we're the expert mentor that walks alongside your transformation.",
+    "values_label": "Our values",
     "values": {
       "reliability": {
         "title": "Reliability",
@@ -64,7 +109,7 @@
       },
       "versatility": {
         "title": "Versatility",
-        "description": "We adapt to any industry, company size, and level of digital maturity."
+        "description": "We adapt to different industries, company sizes and levels of digital maturity."
       },
       "scalability": {
         "title": "Scalability",
@@ -73,20 +118,37 @@
       "accessibility": {
         "title": "Accessibility",
         "description": "We make complex technology understandable and adoptable for non-technical users."
+      },
+      "transformation": {
+        "title": "Real Transformation",
+        "description": "We don't just deliver code — we change how your team works, decides and controls the operation day to day."
       }
     },
-    "stats": {
-      "projects": "Projects delivered",
-      "industries": "Industries served",
-      "countries": "Countries",
-      "satisfaction": "Client satisfaction"
+    "commitments_label": "What you can expect",
+    "commitments": {
+      "response": {
+        "title": "Answers within 24 hours",
+        "description": "Every message gets a real response from an engineer, not an autoresponder."
+      },
+      "support": {
+        "title": "Support after launch",
+        "description": "We don't disappear at go-live. Training, monitoring and evolution are part of the job."
+      },
+      "ownership": {
+        "title": "You own everything",
+        "description": "Code, data and infrastructure are yours. No lock-in, no hostage systems."
+      },
+      "clarity": {
+        "title": "Plain language",
+        "description": "We explain technical decisions clearly, so you can actually make them with us."
+      }
     },
     "founder": "Founded by Hernán Provoste · Valdivia, Chile"
   },
   "contact": {
     "label": "Get in touch",
     "title": "Let's build something.",
-    "subtitle": "Tell us about your project. We'll get back to you within 24 hours.",
+    "subtitle": "Tell us how your operation works today and where you want it to be. We'll map your systems and suggest a first step — no obligation.",
     "form": {
       "name": "Full name",
       "name_placeholder": "Your name",
@@ -95,7 +157,7 @@
       "company": "Company",
       "company_placeholder": "Your company name",
       "message": "Message",
-      "message_placeholder": "Tell us about your project, challenges, or goals...",
+      "message_placeholder": "Tell us about your project, processes and goals.",
       "submit": "Send message",
       "submitting": "Sending...",
       "success": "Message sent! We'll be in touch soon.",
