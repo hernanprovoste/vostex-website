@@ -22,30 +22,36 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "VOSTEX — Beyond the digital gap.",
+  metadataBase: new URL("https://vostex.io"),
+  title: "VOSTEX — Engineered systems for real-world operations.",
   description:
-    "We build software that transforms and AI that decides. Custom software development, AI solutions, process automation and digital presence for SMEs in Chile and Latin America.",
+    "Software engineering studio. We design and build custom software, platforms and automations so your business can run with clarity, speed and control. Based in Valdivia, Chile.",
   keywords: [
-    "software development",
-    "AI solutions",
-    "digital transformation",
+    "software engineering studio",
+    "custom software",
+    "internal systems",
+    "platforms",
+    "process automation",
     "Chile",
     "Latin America",
-    "custom software",
-    "automation",
   ],
+  alternates: {
+    canonical: "https://vostex.io",
+  },
   openGraph: {
-    title: "VOSTEX — Beyond the digital gap.",
-    description: "Software que transforma. IA que decide.",
-    url: "https://vostex.ai",
+    title: "VOSTEX — Engineered systems for real-world operations.",
+    description:
+      "We design and build custom software, platforms and automations so your business can run with clarity, speed and control.",
+    url: "https://vostex.io",
     siteName: "VOSTEX",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "VOSTEX — Beyond the digital gap.",
-    description: "Software que transforma. IA que decide.",
+    title: "VOSTEX — Engineered systems for real-world operations.",
+    description:
+      "We design and build custom software, platforms and automations so your business can run with clarity, speed and control.",
   },
   icons: {
     icon: "/assets/isotipo.svg",

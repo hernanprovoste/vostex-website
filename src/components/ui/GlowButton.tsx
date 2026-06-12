@@ -27,7 +27,7 @@ export function GlowButton({
 
   const variants = {
     primary:
-      "bg-[#00C2FF] text-[#060D1A] hover:bg-[#0090C8] shadow-[0_0_20px_rgba(0,194,255,0.3)] hover:shadow-[0_0_30px_rgba(0,194,255,0.5)] disabled:opacity-50 disabled:cursor-not-allowed",
+      "bg-[#00C2FF] text-[#060D1A] hover:bg-[#0090C8] shadow-sm hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed",
     secondary:
       "bg-transparent text-white border border-[#1A2E4A] hover:border-[#00C2FF] hover:text-[#00C2FF] disabled:opacity-50 disabled:cursor-not-allowed",
     outline:

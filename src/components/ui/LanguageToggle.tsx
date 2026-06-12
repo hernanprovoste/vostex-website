@@ -4,7 +4,11 @@ import { useLocale } from "next-intl";
 import { useRouter, usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 
-export function LanguageToggle() {
+type Props = {
+  appearance?: "dark" | "light";
+};
+
+export function LanguageToggle({ appearance = "dark" }: Props) {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
@@ -19,17 +23,30 @@ export function LanguageToggle() {
     router.push(newPath);
   };
 
+  const styles =
+    appearance === "light"
+      ? {
+          base: "text-[#4A5568] hover:text-[#0090C8]",
+          active: "text-[#0D1F3C] font-semibold",
+          separator: "text-[#0D1F3C]/20",
+        }
+      : {
+          base: "text-[#94A3B8] hover:text-[#00C2FF]",
+          active: "text-white font-semibold",
+          separator: "text-[#1A2E4A]",
+        };
+
   return (
     <motion.button
       onClick={toggle}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      className="flex items-center gap-1.5 text-sm font-medium text-[#94A3B8] hover:text-[#00C2FF] transition-colors duration-200 min-h-[44px] min-w-[44px] px-2 cursor-pointer"
+      className={`flex items-center gap-1.5 text-sm font-medium ${styles.base} transition-colors duration-200 min-h-[44px] min-w-[44px] px-2 cursor-pointer`}
       aria-label={`Switch to ${locale === "en" ? "Spanish" : "English"}`}
     >
-      <span className={locale === "en" ? "text-white font-semibold" : ""}>EN</span>
-      <span className="text-[#1A2E4A]">/</span>
-      <span className={locale === "es" ? "text-white font-semibold" : ""}>ES</span>
+      <span className={locale === "en" ? styles.active : ""}>EN</span>
+      <span className={styles.separator}>/</span>
+      <span className={locale === "es" ? styles.active : ""}>ES</span>
     </motion.button>
   );
 }

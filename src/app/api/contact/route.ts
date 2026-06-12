@@ -1,10 +1,9 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(req: Request) {
   try {
+    const resend = new Resend(process.env.RESEND_API_KEY);
     const { name, email, company, message } = await req.json();
 
     if (!name || !email || !message) {
@@ -17,14 +16,14 @@ export async function POST(req: Request) {
     }
 
     const { error } = await resend.emails.send({
-      from: "VOSTEX Contact <contact@vostex.ai>",
-      to: ["h.provoste@vostex.ai"],
+      from: "VOSTEX Contact <contact@vostex.io>",
+      to: ["h.provoste@vostex.io"],
       replyTo: email,
       subject: `[VOSTEX] New contact from ${name}${company ? ` · ${company}` : ""}`,
       html: `
         <div style="font-family: Inter, -apple-system, sans-serif; max-width: 600px; margin: 0 auto; background: #060D1A; color: #FFFFFF; padding: 40px; border-radius: 12px;">
           <div style="margin-bottom: 32px;">
-            <p style="color: #00C2FF; font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; margin: 0 0 8px;">New Contact — vostex.ai</p>
+            <p style="color: #00C2FF; font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; margin: 0 0 8px;">New Contact — vostex.io</p>
             <h1 style="font-size: 24px; font-weight: 700; margin: 0; color: #FFFFFF;">Message from ${name}</h1>
           </div>
 
@@ -55,7 +54,7 @@ export async function POST(req: Request) {
           </div>
 
           <div style="border-top: 1px solid #1A2E4A; padding-top: 20px; text-align: center;">
-            <p style="color: #4A5568; font-size: 11px; margin: 0;">VOSTEX · vostex.ai · Valdivia, Chile</p>
+            <p style="color: #4A5568; font-size: 11px; margin: 0;">VOSTEX · vostex.io · Valdivia, Chile</p>
           </div>
         </div>
       `,
