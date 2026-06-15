@@ -116,7 +116,7 @@ export function Portfolio() {
               </div>
 
               {/* Testimonial */}
-              <blockquote className="border-l-2 border-[#00C2FF] pl-4 mt-1">
+              <blockquote className="border-l-2 border-[#0090C8] pl-4 mt-1">
                 <p className="text-sm text-[#0D1F3C] leading-relaxed italic">
                   &ldquo;{t("testimonial")}&rdquo;
                 </p>

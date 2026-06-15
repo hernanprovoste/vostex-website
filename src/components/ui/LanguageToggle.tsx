@@ -1,7 +1,7 @@
 "use client";
 
 import { useLocale } from "next-intl";
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter, usePathname } from "@/i18n/navigation";
 import { motion } from "framer-motion";
 
 type Props = {
@@ -15,12 +15,10 @@ export function LanguageToggle({ appearance = "dark" }: Props) {
 
   const toggle = () => {
     const next = locale === "en" ? "es" : "en";
-    const segments = pathname.split("/");
-    segments[1] = next;
-    const newPath = segments.join("/") || "/";
-
     document.cookie = `NEXT_LOCALE=${next}; path=/; max-age=${60 * 60 * 24 * 365}`;
-    router.push(newPath);
+    // pathname is already locale-stripped; next-intl emits the correct
+    // unprefixed URL for the default locale under "as-needed".
+    router.replace(pathname, { locale: next });
   };
 
   const styles =
