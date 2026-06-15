@@ -10,6 +10,9 @@ import {
   localeUrl,
   hreflangAlternates,
   OG_LOCALE,
+  organizationJsonLd,
+  websiteJsonLd,
+  professionalServiceJsonLd,
 } from "@/lib/seo";
 import "../globals.css";
 
@@ -81,31 +84,18 @@ export default async function LocaleLayout({ children, params }: Props) {
   const messages = await getMessages();
   const t = await getTranslations({ locale, namespace: "nav" });
 
-  const organizationSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "VOSTEX",
-    url: "https://vostex.io",
-    logo: "https://vostex.io/assets/logo-color.svg",
-    description:
-      "Software engineering studio. We design and build custom software, platforms and automations so your business can run with clarity, speed and control.",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Valdivia",
-      addressCountry: "CL",
-    },
-    sameAs: [
-      "https://linkedin.com/company/vostex",
-      "https://github.com/vostex",
-    ],
-  };
-
   return (
     <html lang={locale} className={`${spaceGrotesk.variable} ${inter.variable}`}>
       <body>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([
+              organizationJsonLd(),
+              websiteJsonLd(),
+              professionalServiceJsonLd(),
+            ]),
+          }}
         />
         <a
           href="#main-content"
