@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { ArrowUpRight, Home, Star } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 import Image from "next/image";
 
 const project = {
@@ -28,24 +29,17 @@ export function Portfolio() {
   return (
     <section
       id="portfolio"
-      className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-white border-t border-[#0D1F3C]/10"
+      className="py-24 md:py-36 px-4 sm:px-6 lg:px-8 bg-white border-t border-[#0D1F3C]/10"
     >
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <AnimatedSection className="mb-16 max-w-2xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#0077A8] mb-4">
-            {t("label")}
-          </p>
-          <h2
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0D1F3C] mb-4"
-            style={{ fontFamily: "var(--font-space-grotesk)" }}
-          >
-            {t("title")}
-          </h2>
-          <p className="text-[#4A5568] text-lg leading-relaxed">
-            {t("subtitle")}
-          </p>
-        </AnimatedSection>
+        <SectionHeading
+          tone="light"
+          eyebrow={t("label")}
+          title={t("title")}
+          subtitle={t("subtitle")}
+          className="mb-16"
+        />
 
         {/* Featured case */}
         <AnimatedSection>
