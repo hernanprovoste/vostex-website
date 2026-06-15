@@ -39,9 +39,9 @@ export function Footer() {
             <Image
               src="/assets/logo-white.svg"
               alt="VOSTEX"
-              width={110}
-              height={28}
-              className="h-7 w-auto"
+              width={126}
+              height={32}
+              className="h-8 w-auto"
             />
             <p className="text-sm text-[#94A3B8] leading-relaxed max-w-[260px]">
               Engineered systems for real-world operations. <br />
