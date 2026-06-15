@@ -5,6 +5,12 @@ import { getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { Toaster } from "sonner";
+import {
+  SITE_URL,
+  localeUrl,
+  hreflangAlternates,
+  OG_LOCALE,
+} from "@/lib/seo";
 import "../globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -21,43 +27,45 @@ const inter = Inter({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://vostex.io"),
-  title: "VOSTEX — Engineered systems for real-world operations.",
-  description:
-    "Software engineering studio. We design and build custom software, platforms and automations so your business can run with clarity, speed and control. Based in Valdivia, Chile.",
-  keywords: [
-    "software engineering studio",
-    "custom software",
-    "internal systems",
-    "platforms",
-    "process automation",
-    "Chile",
-    "Latin America",
-  ],
-  alternates: {
-    canonical: "https://vostex.io",
-  },
-  openGraph: {
-    title: "VOSTEX — Engineered systems for real-world operations.",
-    description:
-      "We design and build custom software, platforms and automations so your business can run with clarity, speed and control.",
-    url: "https://vostex.io",
-    siteName: "VOSTEX",
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "VOSTEX — Engineered systems for real-world operations.",
-    description:
-      "We design and build custom software, platforms and automations so your business can run with clarity, speed and control.",
-  },
-  icons: {
-    icon: "/assets/isotipo.svg",
-    apple: "/assets/isotipo.svg",
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "seo" });
+  const url = localeUrl(locale);
+
+  return {
+    metadataBase: new URL(SITE_URL),
+    title: t("title"),
+    description: t("description"),
+    alternates: {
+      canonical: url,
+      languages: hreflangAlternates(),
+    },
+    openGraph: {
+      title: t("title"),
+      description: t("description"),
+      url,
+      siteName: "VOSTEX",
+      locale: OG_LOCALE[locale] ?? "en_US",
+      alternateLocale: Object.values(OG_LOCALE).filter(
+        (l) => l !== (OG_LOCALE[locale] ?? "en_US")
+      ),
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("title"),
+      description: t("description"),
+    },
+    icons: {
+      icon: "/assets/isotipo.svg",
+      apple: "/assets/isotipo.svg",
+    },
+  };
+}
 
 type Props = {
   children: React.ReactNode;
