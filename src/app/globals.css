@@ -108,6 +108,28 @@ body {
   text-shadow: 0 0 20px rgba(0, 194, 255, 0.4);
 }
 
+/* === Nuggets-style helpers === */
+
+/* Tone-aware accent word inside headings. Parent sets data-tone. */
+[data-tone="light"] .accent { color: #0090C8; }
+[data-tone="dark"] .accent { color: #00C2FF; }
+
+/* Inline keyword highlight inside body copy (smaller text → stricter contrast). */
+[data-tone="light"] .kw { color: #0077A8; font-weight: 600; }
+[data-tone="dark"] .kw { color: #00C2FF; font-weight: 600; }
+
+/* Hairline rule above an editorial item. */
+.hairline-light { border-top: 1px solid rgba(13, 31, 60, 0.12); }
+.hairline-dark { border-top: 1px solid rgba(255, 255, 255, 0.12); }
+
+/* Giant stacked display heading. */
+.display-stack {
+  font-family: var(--font-space-grotesk);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 0.98;
+}
+
 /* Focus ring */
 :focus-visible {
   outline: 2px solid #00C2FF;

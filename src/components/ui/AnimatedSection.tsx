@@ -8,6 +8,7 @@ type Props = {
   className?: string;
   delay?: number;
   direction?: "up" | "down" | "left" | "right" | "none";
+  "data-tone"?: "light" | "dark";
 };
 
 export function AnimatedSection({
@@ -15,6 +16,7 @@ export function AnimatedSection({
   className,
   delay = 0,
   direction = "up",
+  ...props
 }: Props) {
   const prefersReduced = useReducedMotion();
 
@@ -35,6 +37,7 @@ export function AnimatedSection({
   return (
     <motion.div
       className={className}
+      data-tone={props["data-tone"]}
       initial={initial}
       whileInView={animate}
       viewport={{ once: true, margin: "-50px" }}
