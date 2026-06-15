@@ -26,7 +26,7 @@ export function LanguageToggle({ appearance = "dark" }: Props) {
   const styles =
     appearance === "light"
       ? {
-          base: "text-[#4A5568] hover:text-[#0090C8]",
+          base: "text-[#4A5568] hover:text-[#0077A8]",
           active: "text-[#0D1F3C] font-semibold",
           separator: "text-[#0D1F3C]/20",
         }

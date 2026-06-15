@@ -13,7 +13,7 @@ export function Process() {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <AnimatedSection className="mb-16 max-w-2xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#0090C8] mb-4">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#0077A8] mb-4">
             {t("label")}
           </p>
           <h2
@@ -33,7 +33,7 @@ export function Process() {
             <AnimatedSection key={key} delay={i * 0.1}>
               <div className="relative flex flex-col gap-3 h-full border-t border-[#0D1F3C]/10 pt-6">
                 <span
-                  className="text-sm font-semibold text-[#0090C8] tabular-nums"
+                  className="text-sm font-semibold text-[#0077A8] tabular-nums"
                   style={{ fontFamily: "var(--font-space-grotesk)" }}
                 >
                   {String(i + 1).padStart(2, "0")}

@@ -29,7 +29,7 @@ export function Services() {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <AnimatedSection className="mb-16 max-w-2xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#0090C8] mb-4">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#0077A8] mb-4">
             {t("label")}
           </p>
           <h2
@@ -92,7 +92,7 @@ export function Services() {
                     >
                       {t(`items.${key}.name`)}
                     </h3>
-                    <p className={`text-sm font-medium ${featured ? "text-[#00C2FF]" : "text-[#0090C8]"}`}>
+                    <p className={`text-sm font-medium ${featured ? "text-[#00C2FF]" : "text-[#0077A8]"}`}>
                       {t(`items.${key}.tagline`)}
                     </p>
                     <p className={`text-sm leading-relaxed mt-1 ${featured ? "text-[#94A3B8]" : "text-[#4A5568]"}`}>

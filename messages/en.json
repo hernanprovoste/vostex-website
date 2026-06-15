@@ -4,7 +4,8 @@
     "portfolio": "Portfolio",
     "about": "About",
     "contact": "Contact",
-    "cta": "Get in touch"
+    "cta": "Get in touch",
+    "skip": "Skip to content"
   },
   "hero": {
     "headline": "Engineered systems for real-world operations.",

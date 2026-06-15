@@ -106,7 +106,7 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[#4A5568] hover:text-[#00C2FF] transition-colors cursor-pointer min-h-[44px]"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[#94A3B8] hover:text-[#00C2FF] transition-colors cursor-pointer min-h-[44px]"
         aria-label={t("scroll")}
       >
         <span className="text-xs tracking-widest uppercase">{t("scroll")}</span>

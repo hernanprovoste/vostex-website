@@ -56,7 +56,7 @@ export function About() {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <AnimatedSection className="text-center mb-16">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#0090C8] mb-4">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#0077A8] mb-4">
             {t("label")}
           </p>
           <h2
@@ -99,7 +99,7 @@ export function About() {
         {/* Commitments — honest signals instead of vanity stats */}
         <div className="mb-20">
           <AnimatedSection>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#0090C8] mb-8 text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#0077A8] mb-8 text-center">
               {t("commitments_label")}
             </p>
           </AnimatedSection>
@@ -109,7 +109,7 @@ export function About() {
               return (
                 <AnimatedSection key={key} delay={i * 0.08}>
                   <div className="rounded-xl border border-[#0D1F3C]/10 bg-[#E8ECF0]/40 p-6 flex flex-col gap-3 h-full">
-                    <Icon size={20} className="text-[#0090C8]" strokeWidth={1.5} />
+                    <Icon size={20} className="text-[#0077A8]" strokeWidth={1.5} />
                     <h3
                       className="text-sm font-semibold text-[#0D1F3C]"
                       style={{ fontFamily: "var(--font-space-grotesk)" }}
@@ -128,7 +128,7 @@ export function About() {
 
         {/* Values */}
         <AnimatedSection>
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#0090C8] mb-8 text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#0077A8] mb-8 text-center">
             {t("values_label")}
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -137,7 +137,7 @@ export function About() {
               return (
                 <AnimatedSection key={key} delay={i * 0.08} direction="up">
                   <div className="rounded-xl border border-[#0D1F3C]/10 bg-[#E8ECF0]/40 p-5 flex flex-col gap-3 h-full">
-                    <Icon size={20} className="text-[#0090C8]" strokeWidth={1.5} />
+                    <Icon size={20} className="text-[#0077A8]" strokeWidth={1.5} />
                     <h3
                       className="text-sm font-semibold text-[#0D1F3C]"
                       style={{ fontFamily: "var(--font-space-grotesk)" }}

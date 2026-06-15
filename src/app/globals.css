@@ -68,6 +68,8 @@
 
 html {
   scroll-behavior: smooth;
+  /* Keep anchored sections clear of the fixed 64px navbar */
+  scroll-padding-top: 5rem;
   -webkit-text-size-adjust: 100%;
 }
 

@@ -4,7 +4,8 @@
     "portfolio": "Portafolio",
     "about": "Nosotros",
     "contact": "Contacto",
-    "cta": "Contáctanos"
+    "cta": "Contáctanos",
+    "skip": "Saltar al contenido"
   },
   "hero": {
     "headline": "Sistemas de software para operaciones reales.",

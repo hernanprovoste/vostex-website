@@ -21,7 +21,7 @@ export function Problem() {
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
         {/* Editorial header — left column */}
         <AnimatedSection>
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#0090C8] mb-4">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#0077A8] mb-4">
             {t("label")}
           </p>
           <h2
