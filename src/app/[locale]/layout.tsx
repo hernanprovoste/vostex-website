@@ -35,6 +35,7 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "seo" });
   const url = localeUrl(locale);
+  const ogLocale = OG_LOCALE[locale] ?? "en_US";
 
   return {
     metadataBase: new URL(SITE_URL),
@@ -49,10 +50,8 @@ export async function generateMetadata({
       description: t("description"),
       url,
       siteName: "VOSTEX",
-      locale: OG_LOCALE[locale] ?? "en_US",
-      alternateLocale: Object.values(OG_LOCALE).filter(
-        (l) => l !== (OG_LOCALE[locale] ?? "en_US")
-      ),
+      locale: ogLocale,
+      alternateLocale: Object.values(OG_LOCALE).filter((l) => l !== ogLocale),
       type: "website",
     },
     twitter: {
