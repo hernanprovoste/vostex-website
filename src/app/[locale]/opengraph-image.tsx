@@ -11,7 +11,7 @@ export default async function OgImage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "seo" });
+  const t = await getTranslations({ locale, namespace: "hero" });
 
   return new ImageResponse(
     (
@@ -42,10 +42,9 @@ export default async function OgImage({
             fontSize: 72,
             fontWeight: 700,
             lineHeight: 1.05,
-            maxWidth: 1000,
           }}
         >
-          {t("title").replace("VOSTEX — ", "")}
+          {t("headline")}
         </div>
         <div style={{ color: "#94A3B8", fontSize: 28 }}>vostex.io</div>
       </div>
