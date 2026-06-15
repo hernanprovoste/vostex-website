@@ -17,31 +17,33 @@ export function Hero() {
   };
 
   return (
-    <section className="relative min-h-dvh flex flex-col items-center justify-center overflow-hidden bg-[#060D1A] bg-texture px-4 sm:px-6 lg:px-8 pt-16">
-      {/* Subtle radial background */}
+    <section
+      data-tone="dark"
+      className="relative min-h-dvh flex flex-col justify-center overflow-hidden bg-[#060D1A] bg-texture px-4 sm:px-6 lg:px-8 pt-24 pb-16"
+    >
       <div
         aria-hidden
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 80% 60% at 50% 30%, rgba(0,194,255,0.03) 0%, transparent 70%)",
+            "radial-gradient(ellipse 80% 60% at 30% 30%, rgba(0,194,255,0.04) 0%, transparent 70%)",
         }}
       />
 
-      <div className="relative z-10 max-w-5xl mx-auto text-center">
+      <div className="relative z-10 max-w-7xl mx-auto w-full">
         {/* Label */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 mb-8"
+          className="mb-8"
         >
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#00C2FF]">
             VOSTEX
           </span>
         </motion.div>
 
-        {/* Headline */}
+        {/* Headline — stacked, last word accented */}
         <motion.h1
           initial={prefersReduced ? { opacity: 0 } : { opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -50,53 +52,37 @@ export function Hero() {
             delay: prefersReduced ? 0 : 0.2,
             ease: [0.25, 0.46, 0.45, 0.94],
           }}
-          className="font-display font-bold text-white leading-tight tracking-tight mb-6"
-          style={{
-            fontSize: "clamp(2.5rem, 7vw, 5.5rem)",
-            fontFamily: "var(--font-space-grotesk)",
-          }}
+          className="display-stack text-white max-w-5xl"
+          style={{ fontSize: "clamp(2.75rem, 8vw, 6rem)" }}
         >
           {words.map((word, i) => (
             <span key={i} className="inline-block mr-[0.25em]">
-              {i === words.length - 1 ? (
-                <span className="text-[#00C2FF]">{word}</span>
-              ) : (
-                word
-              )}
+              {i === words.length - 1 ? <span className="accent">{word}</span> : word}
             </span>
           ))}
         </motion.h1>
 
-        {/* Subheadline */}
-        <motion.p
-          initial={prefersReduced ? { opacity: 0 } : { opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: prefersReduced ? 0 : 0.4 }}
-          className="text-lg sm:text-xl text-[#94A3B8] mb-10 max-w-2xl mx-auto leading-relaxed"
-          style={{ fontFamily: "var(--font-inter)" }}
-        >
-          {t("subheadline")}
-        </motion.p>
-
-        {/* CTAs */}
+        {/* Bottom row: subheadline (left) + CTAs (right) */}
         <motion.div
           initial={prefersReduced ? { opacity: 0 } : { opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: prefersReduced ? 0 : 0.6 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-3"
+          transition={{ duration: 0.6, delay: prefersReduced ? 0 : 0.4 }}
+          className="mt-10 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8"
         >
-          <GlowButton
-            variant="primary"
-            onClick={() => scrollTo("contact")}
+          <p
+            className="text-lg sm:text-xl text-[#94A3B8] max-w-xl leading-relaxed"
+            style={{ fontFamily: "var(--font-inter)" }}
           >
-            {t("cta_primary")}
-          </GlowButton>
-          <GlowButton
-            variant="secondary"
-            onClick={() => scrollTo("portfolio")}
-          >
-            {t("cta_secondary")}
-          </GlowButton>
+            {t("subheadline")}
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+            <GlowButton variant="primary" onClick={() => scrollTo("contact")}>
+              {t("cta_primary")}
+            </GlowButton>
+            <GlowButton variant="secondary" onClick={() => scrollTo("portfolio")}>
+              {t("cta_secondary")}
+            </GlowButton>
+          </div>
         </motion.div>
       </div>
 
