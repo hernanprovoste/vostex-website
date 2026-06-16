@@ -4,7 +4,13 @@
     "portfolio": "Portfolio",
     "about": "About",
     "contact": "Contact",
-    "cta": "Get in touch"
+    "cta": "Get in touch",
+    "skip": "Skip to content"
+  },
+  "seo": {
+    "title": "VOSTEX — Engineered systems for real-world operations",
+    "description": "Software engineering studio in Valdivia, Chile. We design and build custom software, platforms and automations so your business runs with clarity, speed and control.",
+    "ogAlt": "VOSTEX — Engineered systems for real-world operations"
   },
   "hero": {
     "headline": "Engineered systems for real-world operations.",

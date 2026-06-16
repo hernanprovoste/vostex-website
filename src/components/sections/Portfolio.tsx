@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { ArrowUpRight, Home, Star } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 import Image from "next/image";
 
 const project = {
@@ -28,24 +29,17 @@ export function Portfolio() {
   return (
     <section
       id="portfolio"
-      className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-white border-t border-[#0D1F3C]/10"
+      className="py-24 md:py-36 px-4 sm:px-6 lg:px-8 bg-white border-t border-[#0D1F3C]/10"
     >
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <AnimatedSection className="mb-16 max-w-2xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#0090C8] mb-4">
-            {t("label")}
-          </p>
-          <h2
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0D1F3C] mb-4"
-            style={{ fontFamily: "var(--font-space-grotesk)" }}
-          >
-            {t("title")}
-          </h2>
-          <p className="text-[#4A5568] text-lg leading-relaxed">
-            {t("subtitle")}
-          </p>
-        </AnimatedSection>
+        <SectionHeading
+          tone="light"
+          eyebrow={t("label")}
+          title={t("title")}
+          subtitle={t("subtitle")}
+          className="mb-16"
+        />
 
         {/* Featured case */}
         <AnimatedSection>
@@ -78,7 +72,7 @@ export function Portfolio() {
             <div className="flex flex-col gap-5 p-6 sm:p-10">
               {/* Pills */}
               <div className="flex items-center gap-2 flex-wrap">
-                <span className="text-[10px] font-semibold uppercase tracking-wider text-[#0090C8] border border-[#0090C8]/25 bg-[#0090C8]/5 px-2.5 py-1 rounded-full">
+                <span className="text-[10px] font-semibold uppercase tracking-wider text-[#0077A8] border border-[#0077A8]/25 bg-[#0077A8]/5 px-2.5 py-1 rounded-full">
                   {t(project.industryKey)}
                 </span>
                 <span className="text-[10px] font-semibold uppercase tracking-wider text-[#4A5568] border border-[#4A5568]/20 px-2.5 py-1 rounded-full">
@@ -113,7 +107,7 @@ export function Portfolio() {
                   >
                     <Icon
                       size={14}
-                      className="text-[#0090C8] mt-0.5 shrink-0"
+                      className="text-[#0077A8] mt-0.5 shrink-0"
                       strokeWidth={1.5}
                     />
                     <span className="text-sm text-[#0D1F3C]">{t(key)}</span>
@@ -122,7 +116,7 @@ export function Portfolio() {
               </div>
 
               {/* Testimonial */}
-              <blockquote className="border-l-2 border-[#00C2FF] pl-4 mt-1">
+              <blockquote className="border-l-2 border-[#0090C8] pl-4 mt-1">
                 <p className="text-sm text-[#0D1F3C] leading-relaxed italic">
                   &ldquo;{t("testimonial")}&rdquo;
                 </p>
@@ -139,7 +133,7 @@ export function Portfolio() {
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-1 text-sm font-semibold text-[#0090C8] hover:text-[#0D1F3C] transition-colors mt-auto pt-2 w-fit"
+                className="group flex items-center gap-1 text-sm font-semibold text-[#0077A8] hover:text-[#0D1F3C] transition-colors mt-auto pt-2 w-fit"
               >
                 {t("view_project")}
                 <ArrowUpRight

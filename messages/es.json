@@ -4,7 +4,13 @@
     "portfolio": "Portafolio",
     "about": "Nosotros",
     "contact": "Contacto",
-    "cta": "Contáctanos"
+    "cta": "Contáctanos",
+    "skip": "Saltar al contenido"
+  },
+  "seo": {
+    "title": "VOSTEX — Sistemas de software para operaciones reales",
+    "description": "Estudio de ingeniería de software en Valdivia, Chile. Diseñamos y construimos software, plataformas y automatizaciones a medida para que tu operación funcione con claridad, velocidad y control.",
+    "ogAlt": "VOSTEX — Sistemas de software para operaciones reales"
   },
   "hero": {
     "headline": "Sistemas de software para operaciones reales.",

@@ -6,6 +6,7 @@ import { toast } from "sonner";
 import { Send } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { GlowButton } from "@/components/ui/GlowButton";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 
 type FormData = {
   name: string;
@@ -90,7 +91,7 @@ export function Contact() {
     }`;
 
   return (
-    <section id="contact" className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-[#0D1F3C] relative overflow-hidden">
+    <section id="contact" data-tone="dark" className="py-24 md:py-36 px-4 sm:px-6 lg:px-8 bg-[#0D1F3C] relative overflow-hidden">
       <div
         aria-hidden
         className="absolute inset-0 pointer-events-none"
@@ -99,18 +100,14 @@ export function Contact() {
 
       <div className="relative max-w-3xl mx-auto">
         {/* Header */}
-        <AnimatedSection className="text-center mb-12">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#00C2FF] mb-4">
-            {t("label")}
-          </p>
-          <h2
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4"
-            style={{ fontFamily: "var(--font-space-grotesk)" }}
-          >
-            {t("title")}
-          </h2>
-          <p className="text-[#94A3B8] text-lg">{t("subtitle")}</p>
-        </AnimatedSection>
+        <SectionHeading
+          tone="dark"
+          align="center"
+          eyebrow={t("label")}
+          title={t("title")}
+          subtitle={t("subtitle")}
+          className="mb-12"
+        />
 
         {/* Form card */}
         <AnimatedSection delay={0.2}>
@@ -204,7 +201,32 @@ export function Contact() {
               className="w-full mt-2 gap-2"
             >
               {loading ? (
-                tForm("submitting")
+                <>
+                  <svg
+                    className="animate-spin"
+                    width={14}
+                    height={14}
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    aria-hidden
+                  >
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="3"
+                      opacity="0.25"
+                    />
+                    <path
+                      d="M12 2a10 10 0 0 1 10 10"
+                      stroke="currentColor"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                  {tForm("submitting")}
+                </>
               ) : (
                 <>
                   {tForm("submit")}
