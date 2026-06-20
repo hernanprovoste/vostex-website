@@ -74,8 +74,8 @@ export async function POST(req: Request) {
 
     const resend = new Resend(process.env.RESEND_API_KEY);
     const { error } = await resend.emails.send({
-      from: "VOSTEX Contact <contact@vostex.io>",
-      to: ["h.provoste@vostex.io"],
+      from: "VOSTEX Contact <noreply@vostex.io>",
+      to: ["hernan.provoste@vostex.io"],
       replyTo: email,
       subject: `[VOSTEX] New contact from ${name}${company ? ` · ${company}` : ""}`,
       html: `
