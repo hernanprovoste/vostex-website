@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter } from "next/font/google";
+import { Playfair_Display, Lato } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -16,17 +16,18 @@ import {
 } from "@/lib/seo";
 import "../globals.css";
 
-const spaceGrotesk = Space_Grotesk({
+const playfair = Playfair_Display({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-space-grotesk",
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-playfair",
   display: "swap",
 });
 
-const inter = Inter({
+const lato = Lato({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-inter",
+  weight: ["400", "700"],
+  variable: "--font-lato",
   display: "swap",
 });
 
@@ -85,7 +86,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   const t = await getTranslations({ locale, namespace: "nav" });
 
   return (
-    <html lang={locale} className={`${spaceGrotesk.variable} ${inter.variable}`}>
+    <html lang={locale} className={`${playfair.variable} ${lato.variable}`}>
       <body>
         <script
           type="application/ld+json"
@@ -99,7 +100,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         />
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-lg focus:bg-[#00C2FF] focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-[#060D1A]"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-sm focus:bg-[#00C2FF] focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-[#060D1A]"
         >
           {t("skip")}
         </a>
@@ -110,8 +111,10 @@ export default async function LocaleLayout({ children, params }: Props) {
             toastOptions={{
               style: {
                 background: "#0D1F3C",
-                border: "1px solid #1A2E4A",
+                border: "1px solid rgba(232,236,240,0.14)",
+                borderRadius: "2px",
                 color: "#FFFFFF",
+                fontFamily: "var(--font-lato), system-ui, sans-serif",
               },
             }}
           />

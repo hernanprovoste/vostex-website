@@ -2,44 +2,46 @@ import { ReactNode } from "react";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 
 type Props = {
-  eyebrow: string;
-  title: ReactNode; // wrap accent words in <span className="accent">
-  subtitle?: ReactNode;
+  kicker: string;
+  title: ReactNode; // may include <em> for an italic accent word
+  lead?: ReactNode;
   tone?: "light" | "dark";
-  align?: "left" | "center";
   className?: string;
 };
 
+/**
+ * Editorial section head — document/consultancy style.
+ * Kicker sits in the left column beside the serif H2 (not a floating pill).
+ * Stacks on mobile. Tone controls the top hairline and lead color.
+ */
 export function SectionHeading({
-  eyebrow,
+  kicker,
   title,
-  subtitle,
+  lead,
   tone = "light",
-  align = "left",
   className = "",
 }: Props) {
-  const titleColor = tone === "dark" ? "text-white" : "text-[#0D1F3C]";
-  const eyebrowColor = tone === "dark" ? "text-[#00C2FF]" : "text-[#0077A8]";
-  const subColor = tone === "dark" ? "text-[#94A3B8]" : "text-[#4A5568]";
-  const alignCls = align === "center" ? "text-center mx-auto items-center" : "";
+  const hairline = tone === "dark" ? "border-[#E8ECF0]/14" : "border-[#0D1F3C]/13";
+  const leadColor = tone === "dark" ? "text-[#8A97A8]" : "text-[#4A5568]";
 
   return (
     <AnimatedSection
-      data-tone={tone}
-      className={`flex flex-col gap-5 ${alignCls} ${className}`}
+      className={`grid grid-cols-1 md:grid-cols-[240px_1fr] gap-6 md:gap-10 items-start pt-9 border-t ${hairline} ${className}`}
     >
-      <p className={`text-xs font-semibold uppercase tracking-[0.2em] ${eyebrowColor}`}>
-        {eyebrow}
-      </p>
-      <h2
-        className={`display-stack ${titleColor}`}
-        style={{ fontSize: "clamp(2.5rem, 6vw, 4.5rem)" }}
-      >
-        {title}
-      </h2>
-      {subtitle && (
-        <p className={`text-lg leading-relaxed max-w-2xl ${subColor}`}>{subtitle}</p>
-      )}
+      <span className="kicker">{kicker}</span>
+      <div>
+        <h2
+          className="font-serif font-medium leading-[1.07] max-w-[18ch] text-balance"
+          style={{ fontSize: "clamp(2.1rem, 4.4vw, 3.6rem)" }}
+        >
+          {title}
+        </h2>
+        {lead && (
+          <p className={`mt-4 max-w-[58ch] text-[1.06rem] leading-relaxed ${leadColor}`}>
+            {lead}
+          </p>
+        )}
+      </div>
     </AnimatedSection>
   );
 }

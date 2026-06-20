@@ -11,21 +11,22 @@ export function Process() {
   const t = useTranslations("process");
 
   return (
-    <section className="py-24 md:py-36 px-4 sm:px-6 lg:px-8 bg-white border-t border-[#0D1F3C]/10">
+    <section className="section-deep px-4 sm:px-6 lg:px-8 py-[clamp(5rem,11vh,9rem)]">
       <div className="max-w-7xl mx-auto">
         <SectionHeading
-          tone="light"
-          eyebrow={t("label")}
+          tone="dark"
+          kicker={t("label")}
           title={t("title")}
-          subtitle={t("subtitle")}
-          className="mb-16"
+          lead={t("subtitle")}
+          className="mb-14"
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
           {stepKeys.map((key, i) => (
-            <AnimatedSection key={key} delay={i * 0.1}>
+            <AnimatedSection key={key} delay={i * 0.06}>
               <HairlineItem
-                tone="light"
+                tone="dark"
+                first={i === 0}
                 index={String(i + 1).padStart(2, "0")}
                 title={t(`steps.${key}.title`)}
                 description={t(`steps.${key}.description`)}

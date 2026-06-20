@@ -1,17 +1,16 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { FileSpreadsheet, EyeOff, UserX } from "lucide-react";
+import { Table2, EyeOff, Users } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { HairlineItem } from "@/components/ui/HairlineItem";
 
 const painIcons = {
-  spreadsheets: FileSpreadsheet,
+  spreadsheets: Table2,
   visibility: EyeOff,
-  keypeople: UserX,
+  keypeople: Users,
 };
-
 type PainKey = keyof typeof painIcons;
 
 export function Problem() {
@@ -19,20 +18,22 @@ export function Problem() {
   const pains: PainKey[] = ["spreadsheets", "visibility", "keypeople"];
 
   return (
-    <section className="py-24 md:py-36 px-4 sm:px-6 lg:px-8 bg-white">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+    <section className="bg-[#FAFAFA] px-4 sm:px-6 lg:px-8 py-[clamp(5rem,11vh,9rem)]">
+      <div className="max-w-7xl mx-auto">
         <SectionHeading
           tone="light"
-          eyebrow={t("label")}
+          kicker={t("label")}
           title={t("title")}
-          subtitle={<span data-tone="light">{t("bridge")}</span>}
+          lead={t("bridge")}
+          className="mb-14"
         />
 
-        <div className="grid grid-cols-1 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3">
           {pains.map((key, i) => (
-            <AnimatedSection key={key} delay={i * 0.1}>
+            <AnimatedSection key={key} delay={i * 0.08}>
               <HairlineItem
                 tone="light"
+                first={i === 0}
                 icon={painIcons[key]}
                 title={t(`pains.${key}.title`)}
                 description={t(`pains.${key}.description`)}

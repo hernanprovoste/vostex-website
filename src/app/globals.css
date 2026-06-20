@@ -1,30 +1,26 @@
 @import "tailwindcss";
 
 @theme {
-  /* === VOSTEX BRAND COLORS (Manual v1.0) === */
+  /* === VOSTEX BRAND COLORS (Editorial v2.0) === */
+  --color-paper: #FAFAFA;     /* default light canvas */
+  --color-ink: #0D1F3C;       /* navy — primary text on light */
   --color-navy: #0D1F3C;
-  --color-dark: #060D1A;
-  --color-cyan: #00C2FF;
+  --color-dark: #060D1A;      /* deepest sections / footer */
+  --color-cyan: #00C2FF;      /* accent — used sparingly */
   --color-cyan-hover: #0090C8;
-  --color-cyan-glow: rgba(0, 194, 255, 0.15);
   --color-platinum: #E8ECF0;
-  --color-slate: #4A5568;
+  --color-bone: #E8ECF0;      /* text on dark */
+  --color-bone-muted: #8A97A8;/* muted text on dark */
+  --color-slate: #4A5568;     /* muted text on light */
   --color-white: #FFFFFF;
 
-  /* Surface variants */
-  --color-surface: #0D1F3C;
-  --color-surface-elevated: #132743;
-  --color-border: #1A2E4A;
-  --color-border-subtle: #0F2035;
-
-  /* Text */
-  --color-text-primary: #FFFFFF;
-  --color-text-muted: #94A3B8;
-  --color-text-dark: #0D1F3C;
+  /* Hairline rules */
+  --color-rule-light: rgba(13, 31, 60, 0.13);
+  --color-rule-dark: rgba(232, 236, 240, 0.14);
 
   /* === TYPOGRAPHY === */
-  --font-display: var(--font-space-grotesk), system-ui, sans-serif;
-  --font-body: var(--font-inter), system-ui, sans-serif;
+  --font-serif: var(--font-playfair), Georgia, serif;
+  --font-sans: var(--font-lato), system-ui, -apple-system, sans-serif;
 
   /* === SPACING SCALE (4pt base) === */
   --spacing-1: 0.25rem;
@@ -48,16 +44,21 @@
   --breakpoint-xl: 1280px;
   --breakpoint-2xl: 1440px;
 
-  /* === ANIMATION === */
-  --animate-duration-fast: 150ms;
-  --animate-duration-normal: 250ms;
-  --animate-duration-slow: 350ms;
+  /* === RADIUS (sharp / structural) === */
+  --radius-none: 0px;
+  --radius-sm: 2px;
+
+  /* === ANIMATION (snappy / linear) === */
+  --ease-snap: cubic-bezier(0.2, 0, 0, 1);
+  --animate-duration-fast: 130ms;
+  --animate-duration-normal: 150ms;
+  --animate-duration-slow: 250ms;
 }
 
 /* Base styles */
 :root {
-  --background: #060D1A;
-  --foreground: #FFFFFF;
+  --background: #FAFAFA;
+  --foreground: #0D1F3C;
 }
 
 *,
@@ -68,67 +69,137 @@
 
 html {
   scroll-behavior: smooth;
-  /* Keep anchored sections clear of the fixed 64px navbar */
+  /* Keep anchored sections clear of the fixed navbar */
   scroll-padding-top: 5rem;
   -webkit-text-size-adjust: 100%;
+  /* Light-dominant product — keep native form controls light */
+  color-scheme: light;
+}
+
+/* Remove the 300ms tap delay on interactive elements */
+a,
+button,
+input,
+textarea,
+select {
+  touch-action: manipulation;
 }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  font-family: var(--font-lato), system-ui, -apple-system, sans-serif;
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
-/* Diagonal texture pattern (from brand manual — max 4% opacity) */
+/* Serif headings */
+h1, h2, h3 {
+  font-family: var(--font-playfair), Georgia, serif;
+  font-weight: 500;
+}
+
+/* === Tone helpers ===
+   Dark sections opt-in. They set the background + base text color, so
+   descendants (kicker, lead, etc.) inherit the right tone automatically. */
+.section-dark {
+  background: var(--color-navy);
+  color: var(--color-bone);
+  position: relative;
+}
+.section-deep {
+  background: var(--color-dark);
+  color: var(--color-bone);
+  position: relative;
+}
+/* Faint diagonal texture (≤4%) evoking the X — dark blocks only */
+.section-dark::before,
+.section-deep::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent 0 22px,
+    rgba(0, 194, 255, 0.04) 22px 23px
+  );
+}
+.section-dark > *,
+.section-deep > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Standalone diagonal texture utility */
 .bg-texture {
   background-image: repeating-linear-gradient(
     -45deg,
     transparent,
     transparent 20px,
-    rgba(0, 194, 255, 0.02) 20px,
-    rgba(0, 194, 255, 0.02) 21px
+    rgba(0, 194, 255, 0.04) 20px,
+    rgba(0, 194, 255, 0.04) 21px
   );
 }
 
-/* Cyan glow utilities */
-.glow-cyan {
-  box-shadow: 0 0 20px rgba(0, 194, 255, 0.2), 0 0 40px rgba(0, 194, 255, 0.1);
-}
+/* === Editorial helpers === */
 
-.glow-cyan-sm {
-  box-shadow: 0 0 10px rgba(0, 194, 255, 0.15);
-}
-
-.text-glow-cyan {
-  text-shadow: 0 0 20px rgba(0, 194, 255, 0.4);
-}
-
-/* === Nuggets-style helpers === */
-
-/* Tone-aware accent word inside headings. Parent sets data-tone. */
-[data-tone="light"] .accent { color: #0090C8; }
-[data-tone="dark"] .accent { color: #00C2FF; }
-
-/* Inline keyword highlight inside body copy (smaller text → stricter contrast). */
-[data-tone="light"] .kw { color: #0077A8; font-weight: 600; }
-[data-tone="dark"] .kw { color: #00C2FF; font-weight: 600; }
-
-/* Hairline rule above an editorial item. */
-.hairline-light { border-top: 1px solid rgba(13, 31, 60, 0.12); }
-.hairline-dark { border-top: 1px solid rgba(255, 255, 255, 0.12); }
-
-/* Giant stacked display heading. */
-.display-stack {
-  font-family: var(--font-space-grotesk);
+/* Kicker — section label with a short cyan dash. Lives in the left column
+   of a section head (not a floating pill above the title). */
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-lato), system-ui, sans-serif;
   font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 0.98;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: inherit; /* tone comes from the section (ink on light, bone on dark) */
 }
+.kicker::before {
+  content: "";
+  width: 26px;
+  height: 2px;
+  background: var(--color-cyan);
+  display: inline-block;
+  flex: none;
+}
+
+/* Tabular numerals for indices */
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Link with a nudging cyan arrow */
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-lato), system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: currentColor;
+}
+.link-arrow .ar {
+  color: var(--color-cyan);
+  transition: transform var(--animate-duration-fast) var(--ease-snap);
+}
+/* Gate the movement so a tap on touch doesn't trigger a false hover nudge */
+@media (hover: hover) and (pointer: fine) {
+  .link-arrow:hover .ar {
+    transform: translateX(5px);
+  }
+}
+
+/* Hairline rules */
+.hairline-light { border-top: 1px solid var(--color-rule-light); }
+.hairline-dark { border-top: 1px solid var(--color-rule-dark); }
 
 /* Focus ring */
 :focus-visible {
@@ -138,20 +209,16 @@ body {
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
-
 ::-webkit-scrollbar-track {
-  background: #060D1A;
+  background: var(--color-paper);
 }
-
 ::-webkit-scrollbar-thumb {
-  background: #1A2E4A;
-  border-radius: 3px;
+  background: var(--color-rule-light);
 }
-
 ::-webkit-scrollbar-thumb:hover {
-  background: #00C2FF;
+  background: var(--color-cyan);
 }
 
 /* Reduced motion */
