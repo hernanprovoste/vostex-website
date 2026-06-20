@@ -9,30 +9,21 @@ import { LanguageToggle } from "@/components/ui/LanguageToggle";
 import { GlowButton } from "@/components/ui/GlowButton";
 
 const navLinks = [
-  { key: "services", href: "#services" },
-  { key: "portfolio", href: "#portfolio" },
-  { key: "about", href: "#about" },
+  { key: "capabilities", href: "#capabilities" },
+  { key: "work", href: "#work" },
+  { key: "philosophy", href: "#about" },
   { key: "contact", href: "#contact" },
 ] as const;
 
 export function Navbar() {
   const t = useTranslations("nav");
-  const [scrolled, setScrolled] = useState(false); // past 20px → show a bar background
-  const [light, setLight] = useState(false); // past the dark hero → light theme
+  const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [active, setActive] = useState("");
 
-  // Bar background + light/dark theme keyed off the actual hero height
+  // Show the bottom hairline once the user scrolls off the top
   useEffect(() => {
-    const hero = document.querySelector("main > section");
-    const onScroll = () => {
-      const y = window.scrollY;
-      const heroH = hero
-        ? (hero as HTMLElement).offsetHeight
-        : window.innerHeight;
-      setScrolled(y > 20);
-      setLight(y > heroH - 64);
-    };
+    const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -76,24 +67,20 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        light
-          ? "bg-white/95 backdrop-blur-md border-b border-[#0D1F3C]/10"
-          : scrolled
-            ? "bg-[#060D1A]/80 backdrop-blur-md border-b border-white/10"
-            : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 bg-[#FAFAFA]/85 backdrop-blur-md border-b transition-colors duration-150 ${
+        scrolled ? "border-[#0D1F3C]/13" : "border-transparent"
       }`}
     >
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        {/* Logo */}
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[72px] flex items-center justify-between">
+        {/* Logo — official color wordmark, preserved as-is */}
         <a
-          href="#"
+          href="#top"
           className="flex items-center"
-          aria-label="VOSTEX - Home"
+          aria-label="VOSTEX — Home"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >
           <Image
-            src={light ? "/assets/logo-color.svg" : "/assets/logo-white.svg"}
+            src="/assets/logo-color.svg"
             alt="VOSTEX"
             width={120}
             height={30}
@@ -103,7 +90,7 @@ export function Navbar() {
         </a>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-9">
           {navLinks.map((link) => {
             const isActive = active === link.href;
             return (
@@ -111,23 +98,13 @@ export function Navbar() {
                 key={link.key}
                 onClick={() => handleNavClick(link.href)}
                 aria-current={isActive ? "true" : undefined}
-                className={`relative text-sm font-medium transition-colors duration-200 cursor-pointer ${
-                  light
-                    ? isActive
-                      ? "text-[#0D1F3C]"
-                      : "text-[#4A5568] hover:text-[#0D1F3C]"
-                    : isActive
-                      ? "text-white"
-                      : "text-[#94A3B8] hover:text-white"
+                className={`text-[0.8rem] uppercase tracking-[0.12em] pb-0.5 border-b transition-colors duration-150 cursor-pointer ${
+                  isActive
+                    ? "text-[#0D1F3C] border-[#0D1F3C]"
+                    : "text-[#4A5568] border-transparent hover:text-[#0D1F3C] hover:border-[#0D1F3C]"
                 }`}
               >
                 {t(link.key)}
-                {isActive && (
-                  <motion.span
-                    layoutId="nav-active"
-                    className="absolute -bottom-1.5 left-0 right-0 h-0.5 rounded-full bg-[#00C2FF]"
-                  />
-                )}
               </button>
             );
           })}
@@ -135,11 +112,11 @@ export function Navbar() {
 
         {/* Right side: lang toggle + CTA */}
         <div className="hidden md:flex items-center gap-3">
-          <LanguageToggle appearance={light ? "light" : "dark"} />
+          <LanguageToggle appearance="light" />
           <GlowButton
-            variant="primary"
+            variant="cyan"
             onClick={() => handleNavClick("#contact")}
-            className="text-xs px-4 py-2"
+            className="px-5 py-2.5 text-[0.72rem]"
           >
             {t("cta")}
           </GlowButton>
@@ -147,16 +124,12 @@ export function Navbar() {
 
         {/* Mobile: lang + hamburger */}
         <div className="flex md:hidden items-center gap-2">
-          <LanguageToggle appearance={light ? "light" : "dark"} />
+          <LanguageToggle appearance="light" />
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-expanded={mobileOpen}
             aria-controls="mobile-menu"
-            className={`p-2 transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center ${
-              light
-                ? "text-[#4A5568] hover:text-[#0D1F3C]"
-                : "text-[#94A3B8] hover:text-white"
-            }`}
+            className="p-2 text-[#4A5568] hover:text-[#0D1F3C] transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
           >
             {mobileOpen ? <X size={20} /> : <Menu size={20} />}
@@ -164,7 +137,7 @@ export function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile drawer — always light */}
+      {/* Mobile drawer */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -172,34 +145,31 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="md:hidden bg-white/98 backdrop-blur-md border-b border-[#0D1F3C]/10 overflow-hidden"
+            transition={{ duration: 0.2, ease: [0.2, 0, 0, 1] }}
+            className="md:hidden bg-[#FAFAFA] border-b border-[#0D1F3C]/13 overflow-hidden"
           >
-            <div className="px-4 py-6 flex flex-col gap-4">
-              {navLinks.map((link, i) => {
+            <div className="px-4 py-6 flex flex-col gap-1">
+              {navLinks.map((link) => {
                 const isActive = active === link.href;
                 return (
-                  <motion.button
+                  <button
                     key={link.key}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.05 }}
                     onClick={() => handleNavClick(link.href)}
                     aria-current={isActive ? "true" : undefined}
-                    className={`text-base text-left py-2 transition-colors cursor-pointer ${
+                    className={`text-sm uppercase tracking-[0.12em] text-left py-3 border-t border-[#0D1F3C]/10 first:border-t-0 transition-colors cursor-pointer ${
                       isActive
-                        ? "text-[#0D1F3C] font-semibold"
-                        : "text-[#4A5568] font-medium hover:text-[#0D1F3C]"
+                        ? "text-[#0D1F3C] font-bold"
+                        : "text-[#4A5568] hover:text-[#0D1F3C]"
                     }`}
                   >
                     {t(link.key)}
-                  </motion.button>
+                  </button>
                 );
               })}
               <GlowButton
-                variant="primary"
+                variant="cyan"
                 onClick={() => handleNavClick("#contact")}
-                className="w-full mt-2"
+                className="w-full mt-4"
               >
                 {t("cta")}
               </GlowButton>

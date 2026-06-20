@@ -2,102 +2,95 @@
 
 import { useTranslations } from "next-intl";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowDown } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { GlowButton } from "@/components/ui/GlowButton";
+
+const stats = [
+  { key: "ownership" },
+  { key: "response" },
+  { key: "growth" },
+] as const;
 
 export function Hero() {
   const t = useTranslations("hero");
   const prefersReduced = useReducedMotion();
 
-  const headline = t("headline");
-  const words = headline.split(" ");
-
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const ease = [0.2, 0, 0, 1] as const;
+  // Full transform strings (not framer x/y shorthands) stay on the GPU.
+  const rise = (delay: number) => ({
+    initial: prefersReduced
+      ? { opacity: 0 }
+      : { opacity: 0, transform: "translateY(24px)" },
+    animate: { opacity: 1, transform: "translateY(0px)" },
+    transition: { duration: 0.5, delay: prefersReduced ? 0 : delay, ease },
+  });
+
   return (
     <section
-      data-tone="dark"
-      className="relative min-h-dvh flex flex-col justify-center overflow-hidden bg-[#060D1A] bg-texture px-4 sm:px-6 lg:px-8 pt-24 pb-16"
+      id="top"
+      className="min-h-dvh flex flex-col justify-center bg-[#FAFAFA] px-4 sm:px-6 lg:px-8 pt-28 pb-16 border-b border-[#0D1F3C]/13"
     >
-      <div
-        aria-hidden
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 60% at 30% 30%, rgba(0,194,255,0.04) 0%, transparent 70%)",
-        }}
-      />
-
-      <div className="relative z-10 max-w-7xl mx-auto w-full">
-        {/* Label */}
+      <div className="max-w-7xl mx-auto w-full">
+        {/* Descriptor line (no pill eyebrow) */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="mb-8"
+          {...rise(0)}
+          className="flex items-center gap-3 mb-9 text-[0.8rem] font-bold uppercase tracking-[0.16em] text-[#4A5568]"
         >
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#00C2FF]">
-            VOSTEX
-          </span>
+          <span className="inline-block w-[26px] h-0.5 bg-[#00C2FF]" aria-hidden />
+          {t("tagline")}
         </motion.div>
 
-        {/* Headline — stacked, last word accented */}
+        {/* Headline — serif, one italic accent word */}
         <motion.h1
-          initial={prefersReduced ? { opacity: 0 } : { opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.7,
-            delay: prefersReduced ? 0 : 0.2,
-            ease: [0.25, 0.46, 0.45, 0.94],
-          }}
-          className="display-stack text-white max-w-5xl"
-          style={{ fontSize: "clamp(2.75rem, 8vw, 6rem)" }}
+          {...rise(0.08)}
+          className="font-serif font-medium leading-[1.0] tracking-[-0.01em] max-w-[16ch] text-balance text-[#0D1F3C]"
+          style={{ fontSize: "clamp(3rem, 9vw, 7.2rem)" }}
         >
-          {words.map((word, i) => (
-            <span key={i} className="inline-block mr-[0.25em]">
-              {i === words.length - 1 ? <span className="accent">{word}</span> : word}
-            </span>
-          ))}
+          {t.rich("headline", {
+            em: (chunks) => <em className="italic">{chunks}</em>,
+          })}
         </motion.h1>
 
-        {/* Bottom row: subheadline (left) + CTAs (right) */}
-        <motion.div
-          initial={prefersReduced ? { opacity: 0 } : { opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: prefersReduced ? 0 : 0.4 }}
-          className="mt-10 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8"
+        {/* Subheadline */}
+        <motion.p
+          {...rise(0.16)}
+          className="mt-8 max-w-[52ch] text-lg sm:text-xl text-[#4A5568] leading-relaxed"
         >
-          <p
-            className="text-lg sm:text-xl text-[#94A3B8] max-w-xl leading-relaxed"
-            style={{ fontFamily: "var(--font-inter)" }}
-          >
-            {t("subheadline")}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 shrink-0">
-            <GlowButton variant="primary" onClick={() => scrollTo("contact")}>
-              {t("cta_primary")}
-            </GlowButton>
-            <GlowButton variant="secondary" onClick={() => scrollTo("portfolio")}>
-              {t("cta_secondary")}
-            </GlowButton>
-          </div>
+          {t("subheadline")}
+        </motion.p>
+
+        {/* CTAs — single cyan accent + ghost */}
+        <motion.div {...rise(0.24)} className="mt-11 flex flex-col sm:flex-row gap-3">
+          <GlowButton variant="cyan" onClick={() => scrollTo("contact")}>
+            {t("cta_primary")}
+            <ArrowRight size={16} strokeWidth={1.5} aria-hidden />
+          </GlowButton>
+          <GlowButton variant="ghost" onClick={() => scrollTo("work")}>
+            {t("cta_secondary")}
+          </GlowButton>
+        </motion.div>
+
+        {/* Qualitative stats */}
+        <motion.div
+          {...rise(0.32)}
+          className="mt-16 pt-7 border-t border-[#0D1F3C]/13 flex flex-wrap gap-x-14 gap-y-6"
+        >
+          {stats.map(({ key }) => (
+            <div key={key}>
+              <div className="font-serif text-3xl leading-none text-[#0D1F3C] tabular-nums">
+                {t(`stats.${key}.num`)}
+              </div>
+              <div className="mt-2 text-[0.72rem] uppercase tracking-[0.12em] text-[#4A5568]">
+                {t(`stats.${key}.label`)}
+              </div>
+            </div>
+          ))}
         </motion.div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.button
-        onClick={() => scrollTo("services")}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 0.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[#94A3B8] hover:text-[#00C2FF] transition-colors cursor-pointer min-h-[44px]"
-        aria-label={t("scroll")}
-      >
-        <span className="text-xs tracking-widest uppercase">{t("scroll")}</span>
-        <ArrowDown size={16} />
-      </motion.button>
     </section>
   );
 }

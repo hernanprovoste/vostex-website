@@ -7,66 +7,50 @@ type Props = {
   icon?: LucideIcon;
   title: string;
   description: string;
-  /** Optional small tag, e.g. "Core". */
-  tag?: string;
-  accentTitle?: boolean;
+  /** First item in its grid drops the divider (set from the map index). */
+  first?: boolean;
   className?: string;
 };
 
+/**
+ * Editorial column item. In a grid it shows a left hairline divider on desktop
+ * (top hairline when stacked on mobile). Pass `first` for the first item so it
+ * drops its divider — needed because each item is wrapped for scroll-reveal,
+ * which would otherwise defeat CSS `:first-child`.
+ * Marker is either a Lucide icon (1.5px outline) or a tabular index number.
+ */
 export function HairlineItem({
   tone = "light",
   index,
   icon: Icon,
   title,
   description,
-  tag,
-  accentTitle = false,
+  first = false,
   className = "",
 }: Props) {
-  const hairline = tone === "dark" ? "hairline-dark" : "hairline-light";
+  const rule = tone === "dark" ? "border-[#E8ECF0]/14" : "border-[#0D1F3C]/13";
+  const titleColor = tone === "dark" ? "text-[#E8ECF0]" : "text-[#0D1F3C]";
+  const descColor = tone === "dark" ? "text-[#8A97A8]" : "text-[#4A5568]";
+  // deep cyan on light keeps small marks accessible; electric cyan on dark
   const accent = tone === "dark" ? "#00C2FF" : "#0090C8";
-  const titleColor = accentTitle
+
+  const divider = first
     ? ""
-    : tone === "dark"
-      ? "text-white"
-      : "text-[#0D1F3C]";
-  const descColor = tone === "dark" ? "text-[#94A3B8]" : "text-[#4A5568]";
-  const indexColor = tone === "dark" ? "text-[#00C2FF]" : "text-[#0090C8]";
+    : `border-t md:border-t-0 md:border-l ${rule} pt-7 md:pt-0 md:pl-7`;
 
   return (
-    <div className={`${hairline} pt-6 flex flex-col gap-3 h-full ${className}`}>
+    <div className={`${divider} flex flex-col gap-3 h-full ${className}`}>
       {index && (
         <span
-          className={`text-sm font-semibold tabular-nums ${indexColor}`}
-          style={{ fontFamily: "var(--font-space-grotesk)" }}
+          className="font-sans text-sm font-bold tabular-nums tracking-[0.1em]"
+          style={{ color: accent }}
         >
           {index}
         </span>
       )}
-      {Icon && (
-        <Icon
-          size={24}
-          strokeWidth={1.5}
-          style={{ color: accent }}
-        />
-      )}
-      <div className="flex items-center gap-2">
-        <h3
-          className={`text-lg font-bold ${titleColor}`}
-          style={{
-            fontFamily: "var(--font-space-grotesk)",
-            ...(accentTitle ? { color: accent } : {}),
-          }}
-        >
-          {title}
-        </h3>
-        {tag && (
-          <span className="text-[10px] font-semibold uppercase tracking-wider bg-[#00C2FF]/10 text-[#00C2FF] border border-[#00C2FF]/25 px-2 py-0.5 rounded-full">
-            {tag}
-          </span>
-        )}
-      </div>
-      <p className={`text-sm leading-relaxed ${descColor}`}>{description}</p>
+      {Icon && <Icon size={26} strokeWidth={1.5} style={{ color: accent }} aria-hidden />}
+      <h3 className={`font-serif text-[1.3rem] leading-tight ${titleColor}`}>{title}</h3>
+      <p className={`text-[0.94rem] leading-relaxed ${descColor}`}>{description}</p>
     </div>
   );
 }

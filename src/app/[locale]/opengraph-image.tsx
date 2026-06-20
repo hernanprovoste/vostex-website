@@ -44,7 +44,7 @@ export default async function OgImage({
             lineHeight: 1.05,
           }}
         >
-          {t("headline")}
+          {t("headline").replace(/<\/?em>/g, "")}
         </div>
         <div style={{ color: "#94A3B8", fontSize: 28 }}>vostex.io</div>
       </div>
