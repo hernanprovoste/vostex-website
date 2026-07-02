@@ -104,22 +104,36 @@
     "subtitle": "Businesses that moved from spreadsheets and scattered tools to software they actually own.",
     "coming_soon": "More case studies coming soon.",
     "view_project": "Visit site",
-    "screenshot_alt": "Tognarelli Propiedades property portal",
     "industry_label": "Industry",
     "service_label": "Service",
-    "industry_realestate": "Real Estate",
-    "service": "Vostex Launch",
-    "location": "Valdivia, CL",
-    "company": "Tognarelli Propiedades",
     "context_label": "Context.",
-    "context": "A luxury real estate firm in Valdivia managing exclusive listings — houses, apartments, offices and land.",
     "built_label": "What we built.",
-    "built": "A custom property portal with advanced search and filtering, and a premium UX designed for high-end clientele.",
     "outcome_label": "Outcome.",
-    "outcome": "A refined, high-performance platform that connects buyers and renters with exclusive properties.",
-    "testimonial": "VOSTEX understood our business from day one. The platform reflects the level of service we want to give every client, and managing our properties is now far simpler for the team.",
-    "testimonial_author": "Tognarelli Propiedades",
-    "testimonial_role": "Valdivia, Chile"
+    "projects": {
+      "tognarelli": {
+        "screenshot_alt": "Tognarelli Propiedades property portal",
+        "industry": "Real Estate",
+        "service": "Vostex Launch",
+        "location": "Valdivia, CL",
+        "company": "Tognarelli Propiedades",
+        "context": "A luxury real estate firm in Valdivia managing exclusive listings — houses, apartments, offices and land.",
+        "built": "A custom property portal with advanced search and filtering, and a premium UX designed for high-end clientele.",
+        "outcome": "A refined, high-performance platform that connects buyers and renters with exclusive properties.",
+        "testimonial": "VOSTEX understood our business from day one. The platform reflects the level of service we want to give every client, and managing our properties is now far simpler for the team.",
+        "testimonial_author": "Tognarelli Propiedades",
+        "testimonial_role": "Valdivia, Chile"
+      },
+      "khronos": {
+        "screenshot_alt": "Khronos landing page",
+        "industry": "Gyms",
+        "service": "Vostex Launch",
+        "location": "Valdivia, CL",
+        "company": "Khronos",
+        "context": "A gym that needed a professional online presence to attract new members.",
+        "built": "A custom landing page with its own brand identity, designed to convert visits into inquiries.",
+        "outcome": "A clear, direct digital presence that reflects the brand's energy."
+      }
+    }
   },
   "about": {
     "label": "Philosophy",
