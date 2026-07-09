@@ -14,6 +14,7 @@ import {
   websiteJsonLd,
   professionalServiceJsonLd,
 } from "@/lib/seo";
+import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import "../globals.css";
 
 const playfair = Playfair_Display({
@@ -106,8 +107,10 @@ export default async function LocaleLayout({ children, params }: Props) {
         </a>
         <NextIntlClientProvider messages={messages}>
           {children}
+          <WhatsAppButton />
           <Toaster
             position="bottom-right"
+            offset={{ bottom: 96 }}
             toastOptions={{
               style: {
                 background: "#0D1F3C",
