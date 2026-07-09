@@ -7,6 +7,10 @@
     "cta": "Conversemos",
     "skip": "Saltar al contenido"
   },
+  "whatsapp": {
+    "aria_label": "Chatear por WhatsApp",
+    "message": "Hola, quiero conversar sobre un proyecto con VOSTEX."
+  },
   "seo": {
     "title": "VOSTEX — Sistemas de software para operaciones reales",
     "description": "Estudio de ingeniería de software en Valdivia, Chile. Diseñamos y construimos software, plataformas y automatizaciones a medida para que tu negocio opere con claridad, velocidad y control.",

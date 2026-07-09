@@ -7,6 +7,10 @@
     "cta": "Get in touch",
     "skip": "Skip to content"
   },
+  "whatsapp": {
+    "aria_label": "Chat on WhatsApp",
+    "message": "Hi, I'd like to talk about a project with VOSTEX."
+  },
   "seo": {
     "title": "VOSTEX — Engineered systems for real-world operations",
     "description": "Software engineering studio in Valdivia, Chile. We design and build custom software, platforms and automations so your business runs with clarity, speed and control.",
