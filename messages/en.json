@@ -114,19 +114,6 @@
     "built_label": "What we built.",
     "outcome_label": "Outcome.",
     "projects": {
-      "tognarelli": {
-        "screenshot_alt": "Tognarelli Propiedades property portal",
-        "industry": "Real Estate",
-        "service": "Vostex Launch",
-        "location": "Valdivia, CL",
-        "company": "Tognarelli Propiedades",
-        "context": "A luxury real estate firm in Valdivia managing exclusive listings — houses, apartments, offices and land.",
-        "built": "A custom property portal with advanced search and filtering, and a premium UX designed for high-end clientele.",
-        "outcome": "A refined, high-performance platform that connects buyers and renters with exclusive properties.",
-        "testimonial": "VOSTEX understood our business from day one. The platform reflects the level of service we want to give every client, and managing our properties is now far simpler for the team.",
-        "testimonial_author": "Tognarelli Propiedades",
-        "testimonial_role": "Valdivia, Chile"
-      },
       "khronos": {
         "screenshot_alt": "Khronos landing page",
         "industry": "Gyms",
@@ -136,6 +123,16 @@
         "context": "A gym that needed a professional online presence to attract new members.",
         "built": "A custom landing page with its own brand identity, designed to convert visits into inquiries.",
         "outcome": "A clear, direct digital presence that reflects the brand's energy."
+      },
+      "mishi": {
+        "screenshot_alt": "Mishi Studio 3D printing web store",
+        "industry": "3D Printing",
+        "service": "Vostex Build",
+        "location": "Valdivia, CL",
+        "company": "Mishi Studio",
+        "context": "Our own 3D printing company in Valdivia: merchandising, keychains and engineering parts, both ready to ship and made to order.",
+        "built": "A custom web store with a catalog, cart, quote requests for custom parts and Mercado Pago checkout.",
+        "outcome": "A clear store that combines ready-to-ship products with made-to-order printing, with free delivery in Valdivia."
       }
     }
   },
