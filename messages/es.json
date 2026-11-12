@@ -114,19 +114,6 @@
     "built_label": "Qué construimos.",
     "outcome_label": "Resultado.",
     "projects": {
-      "tognarelli": {
-        "screenshot_alt": "Portal de propiedades de Tognarelli Propiedades",
-        "industry": "Inmobiliaria",
-        "service": "Vostex Launch",
-        "location": "Valdivia, CL",
-        "company": "Tognarelli Propiedades",
-        "context": "Una inmobiliaria de lujo en Valdivia que gestiona propiedades exclusivas — casas, departamentos, oficinas y terrenos.",
-        "built": "Un portal de propiedades a medida con búsqueda y filtros avanzados, y una UX premium pensada para una clientela exigente.",
-        "outcome": "Una plataforma refinada y de alto rendimiento que conecta a compradores y arrendatarios con propiedades exclusivas.",
-        "testimonial": "VOSTEX entendió nuestro negocio desde el primer día. La plataforma refleja el nivel de servicio que queremos dar a cada cliente, y gestionar nuestras propiedades es ahora mucho más simple para el equipo.",
-        "testimonial_author": "Tognarelli Propiedades",
-        "testimonial_role": "Valdivia, Chile"
-      },
       "khronos": {
         "screenshot_alt": "Landing page de Khronos",
         "industry": "Gimnasios",
@@ -136,6 +123,16 @@
         "context": "Un gimnasio que necesitaba una presencia online profesional para atraer nuevos socios.",
         "built": "Una landing page a medida con identidad de marca propia, pensada para convertir visitas en consultas.",
         "outcome": "Una presencia digital clara y directa que refleja la energía de la marca."
+      },
+      "mishi": {
+        "screenshot_alt": "Tienda web de impresión 3D de Mishi Studio",
+        "industry": "Impresión 3D",
+        "service": "Vostex Build",
+        "location": "Valdivia, CL",
+        "company": "Mishi Studio",
+        "context": "Nuestra propia empresa de impresión 3D en Valdivia: merchandising, llaveros y piezas de ingeniería, tanto listas para enviar como a medida.",
+        "built": "Una tienda web a medida con catálogo, carrito, solicitudes de cotización para piezas personalizadas y pago con Mercado Pago.",
+        "outcome": "Una tienda clara que combina productos listos para enviar con impresión a pedido, con envío gratis en Valdivia."
       }
     }
   },

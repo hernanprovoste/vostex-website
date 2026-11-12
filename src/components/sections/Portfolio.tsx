@@ -7,21 +7,21 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 
 const projects = [
   {
-    key: "tognarelli",
-    screenshot: "/assets/screenshot_tognarelli.png",
-    width: 2876,
-    height: 1498,
-    url: "https://tognarelli.cl",
-    urlLabel: "tognarelli.cl",
-    hasTestimonial: true,
-  },
-  {
     key: "khronos",
     screenshot: "/assets/khronos-landingpage.png",
     width: 1878,
     height: 1277,
     url: "https://khronos-landingpage.vercel.app/",
     urlLabel: "khronos-landingpage.vercel.app",
+    hasTestimonial: false,
+  },
+  {
+    key: "mishi",
+    screenshot: "/assets/screenshot_mishi.png",
+    width: 2880,
+    height: 1920,
+    url: "https://mishistudio.cl/",
+    urlLabel: "mishistudio.cl",
     hasTestimonial: false,
   },
 ] as const;
