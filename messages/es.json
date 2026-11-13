@@ -5,7 +5,12 @@
     "philosophy": "Filosofía",
     "contact": "Contacto",
     "cta": "Conversemos",
-    "skip": "Saltar al contenido"
+    "skip": "Saltar al contenido",
+    "home_aria": "VOSTEX — Inicio",
+    "menu_open": "Abrir menú",
+    "menu_close": "Cerrar menú",
+    "lang_to_en": "Cambiar a inglés",
+    "lang_to_es": "Cambiar a español"
   },
   "whatsapp": {
     "aria_label": "Chatear por WhatsApp",
@@ -14,13 +19,15 @@
   "seo": {
     "title": "VOSTEX — Sistemas de software para operaciones reales",
     "description": "Estudio de ingeniería de software en Valdivia, Chile. Diseñamos y construimos software, plataformas y automatizaciones a medida para que tu negocio opere con claridad, velocidad y control.",
-    "ogAlt": "VOSTEX — Sistemas de software para operaciones reales"
+    "ogAlt": "VOSTEX — Sistemas de software para operaciones reales",
+    "contact_title": "Cuéntanos tu proyecto — VOSTEX",
+    "contact_description": "Responde unas preguntas rápidas sobre tu operación y un ingeniero de VOSTEX te escribe en menos de 24 horas con un primer paso, sin compromiso."
   },
   "hero": {
     "tagline": "Estudio de Ingeniería de Software — Valdivia, Chile",
     "headline": "Sistemas de software para operaciones <em>reales</em>.",
     "subheadline": "Diseñamos y construimos software, plataformas y automatizaciones a medida para que tu operación funcione con claridad, velocidad y control.",
-    "cta_primary": "Agenda una reunión",
+    "cta_primary": "Cuéntanos tu proyecto",
     "cta_secondary": "Ver proyectos",
     "stats": {
       "ownership": { "num": "100%", "label": "Código y datos son tuyos" },
@@ -162,7 +169,120 @@
   "contact": {
     "label": "Conversemos",
     "title": "Construyamos algo.",
-    "subtitle": "Cuéntanos cómo funciona tu operación hoy y dónde quieres llevarla. Mapeamos tus sistemas y proponemos un primer paso — sin compromiso.",
+    "subtitle": "Cuéntanos cómo funciona tu operación con unas preguntas rápidas (unos 3 minutos). Así llegamos a la primera conversación con ideas concretas, sin compromiso.",
+    "cta": "Empezar (3 min)",
+    "page": {
+      "back": "Volver al inicio",
+      "calm": "Tómate tu tiempo: puedes volver atrás y cambiar cualquier respuesta antes de enviar."
+    },
+    "next": {
+      "title": "Qué pasa después",
+      "items": {
+        "review": {
+          "title": "Revisamos tus respuestas",
+          "description": "Un ingeniero estudia tu operación antes de escribirte."
+        },
+        "reply": {
+          "title": "Te respondemos en 24 horas",
+          "description": "Con preguntas concretas o una propuesta de primer paso."
+        },
+        "talk": {
+          "title": "Conversamos, sin compromiso",
+          "description": "Si hace sentido, mapeamos tus procesos juntos."
+        }
+      }
+    },
+    "direct": {
+      "text": "¿Prefieres hablar directo?",
+      "cta": "Escríbenos por WhatsApp"
+    },
+    "flow": {
+      "progress": "Paso {current} de {total}",
+      "back": "Atrás",
+      "next": "Continuar",
+      "skip": "Saltar",
+      "optional": "Opcional",
+      "err_single": "Elige una opción para continuar",
+      "err_multi": "Elige al menos una opción para continuar",
+      "done_title": "¡Gracias! Recibimos tus respuestas.",
+      "done_text": "Un ingeniero las revisará y te escribirá en menos de 24 horas para proponerte un primer paso.",
+      "done_cta": "Escribir por WhatsApp",
+      "steps": {
+        "bottleneck": {
+          "question": "¿Cuál es hoy el principal cuello de botella de tu operación?",
+          "hint": "Elige el que más te cueste: lo que te hace perder tiempo o dinero.",
+          "note_label": "¿Quieres contarnos más?",
+          "note_placeholder": "Por ejemplo: dónde se atasca, cuánto tiempo toma, qué errores aparecen.",
+          "options": {
+            "manual": "Mucho trabajo manual y planillas",
+            "visibility": "No veo los números a tiempo",
+            "people": "Todo depende de pocas personas",
+            "disconnected": "Mis herramientas no conversan entre sí",
+            "customers": "Atender y vender a clientes me desborda",
+            "other": "Otro"
+          }
+        },
+        "processes": {
+          "question": "¿Qué procesos quieres mejorar?",
+          "hint": "Puedes elegir varios.",
+          "note_label": "Cuéntanos cómo funciona hoy",
+          "note_placeholder": "Describe el proceso paso a paso, aunque esté desordenado.",
+          "options": {
+            "sales": "Ventas y pedidos",
+            "inventory": "Inventario y compras",
+            "billing": "Facturación y cobranza",
+            "support": "Atención y postventa",
+            "operations": "Producción y operación",
+            "reporting": "Reportes e indicadores",
+            "team": "Gestión de equipo y tareas",
+            "other": "Otro"
+          }
+        },
+        "tools": {
+          "question": "¿Con qué gestionas esto hoy?",
+          "hint": "Elige todo lo que uses.",
+          "options": {
+            "sheets": "Planillas (Excel, Google Sheets)",
+            "messaging": "WhatsApp y correo",
+            "generic": "Un software genérico (ERP, CRM, etc.)",
+            "legacy": "Un sistema propio antiguo",
+            "paper": "Papel y cuadernos",
+            "none": "Nada formal todavía"
+          }
+        },
+        "build": {
+          "question": "¿Qué crees que necesitas?",
+          "hint": "Si no estás seguro, elige la última opción: lo definimos juntos.",
+          "options": {
+            "internal": "Un sistema interno para mi equipo",
+            "portal": "Un portal o plataforma para mis clientes",
+            "dashboard": "Dashboards y reportes",
+            "automation": "Automatizar tareas e integrar herramientas",
+            "web": "Un sitio web o landing",
+            "unsure": "No lo sé aún, ayúdenme a definirlo"
+          }
+        },
+        "goal": {
+          "question": "Si esto sale bien, ¿qué cambia en tu día a día?",
+          "hint": "Cuéntanos cómo te imaginas que te ayudaríamos y qué resultado te haría decir “valió la pena”.",
+          "placeholder": "Por ejemplo: cerrar el mes en 1 día en vez de 5, o que mi equipo deje de duplicar datos."
+        },
+        "timing": {
+          "question": "¿Para cuándo lo necesitas?",
+          "hint": "Es solo una referencia para priorizar.",
+          "options": {
+            "asap": "Lo antes posible",
+            "quarter": "En 1 a 3 meses",
+            "semester": "En 3 a 6 meses",
+            "exploring": "Estoy explorando"
+          }
+        },
+        "contact": {
+          "question": "¿A quién le respondemos?",
+          "hint": "Un ingeniero revisa tus respuestas y te escribe en menos de 24 horas."
+        }
+      }
+    },
     "form": {
       "name": "Nombre",
       "name_placeholder": "Tu nombre",
@@ -170,16 +290,13 @@
       "email_placeholder": "tu@empresa.com",
       "company": "Empresa",
       "company_placeholder": "Nombre de tu empresa",
-      "message": "Mensaje",
-      "message_placeholder": "Cuéntanos sobre tu proyecto, procesos y objetivos.",
-      "submit": "Enviar mensaje",
+      "submit": "Enviar respuestas",
       "submitting": "Enviando…",
-      "success": "¡Mensaje enviado! Te contactaremos pronto.",
+      "success": "¡Respuestas enviadas! Te contactaremos pronto.",
       "error": "Algo salió mal. Por favor intenta de nuevo.",
       "err_name": "El nombre es obligatorio",
       "err_email_required": "El email es obligatorio",
       "err_email_invalid": "Ingresa un email válido",
-      "err_message": "El mensaje es obligatorio",
       "err_captcha": "Por favor completa la verificación"
     }
   },

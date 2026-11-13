@@ -1,14 +1,19 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { ReactNode } from "react";
+import { ComponentProps, ReactNode } from "react";
+import { Link } from "@/i18n/navigation";
 
 type Variant = "primary" | "cyan" | "ghost";
+
+/** An internal page known to src/i18n/routing.ts (typed, translated per locale). */
+type InternalHref = ComponentProps<typeof Link>["href"];
 
 type Props = {
   children: ReactNode;
   onClick?: () => void;
-  href?: string;
+  /** An internal page ("/contact") or an external / hash URL string. */
+  href?: string | InternalHref;
   variant?: Variant;
   tone?: "light" | "dark"; // affects the ghost variant only
   className?: string;
@@ -67,10 +72,22 @@ export function GlowButton({
   );
 
   if (href) {
+    // Internal pages go through the locale-aware Link so "/contact" becomes
+    // "/contacto" under /es for Spanish visitors; hash and external links
+    // (anything that is not an app path) stay plain anchors.
+    const external =
+      typeof href === "string" && (!href.startsWith("/") || href.startsWith("//"));
+    if (external) {
+      return (
+        <a href={href as string} target={target} rel={rel} className="inline-flex">
+          {content}
+        </a>
+      );
+    }
     return (
-      <a href={href} target={target} rel={rel} className="inline-flex">
+      <Link href={href as InternalHref} className="inline-flex">
         {content}
-      </a>
+      </Link>
     );
   }
 

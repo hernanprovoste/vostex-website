@@ -1,5 +1,12 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { buildContactEmail } from "@/lib/contact-email";
+import {
+  EMAIL_REGEX,
+  LIMITS,
+  OPTIONS,
+  type OptionField,
+} from "@/lib/contact-flow";
 
 // --- Best-effort in-memory rate limiter (per IP) ---
 // Serverless instances don't share memory, so this is a first line of defense,
@@ -36,6 +43,27 @@ async function verifyTurnstile(token: string, ip: string): Promise<boolean> {
   }
 }
 
+// --- Input sanitizing: nothing from the client is trusted ---
+
+/** Trimmed string, capped to `max` characters. Non-strings become "". */
+function text(value: unknown, max: number): string {
+  return typeof value === "string" ? value.trim().slice(0, max) : "";
+}
+
+/** Keep only values that are valid option keys, without duplicates. */
+function pickMany(value: unknown, field: OptionField): string[] {
+  if (!Array.isArray(value)) return [];
+  const allowed: readonly string[] = OPTIONS[field];
+  return [...new Set(value)].filter(
+    (v): v is string => typeof v === "string" && allowed.includes(v)
+  );
+}
+
+function pickOne(value: unknown, field: OptionField): string {
+  const allowed: readonly string[] = OPTIONS[field];
+  return typeof value === "string" && allowed.includes(value) ? value : "";
+}
+
 export async function POST(req: Request) {
   try {
     const ip =
@@ -47,15 +75,17 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Too many requests" }, { status: 429 });
     }
 
-    const { name, email, company, message, website, turnstileToken } =
-      await req.json();
+    const body = (await req.json()) as Record<string, unknown>;
 
     // Honeypot: a real user never fills this. Pretend success, send nothing.
-    if (typeof website === "string" && website.trim() !== "") {
+    if (typeof body.website === "string" && body.website.trim() !== "") {
       return NextResponse.json({ success: true }, { status: 200 });
     }
 
-    const ok = await verifyTurnstile(turnstileToken ?? "", ip);
+    const ok = await verifyTurnstile(
+      typeof body.turnstileToken === "string" ? body.turnstileToken : "",
+      ip
+    );
     if (!ok) {
       return NextResponse.json(
         { error: "Captcha verification failed" },
@@ -63,59 +93,51 @@ export async function POST(req: Request) {
       );
     }
 
-    if (!name || !email || !message) {
+    const name = text(body.name, LIMITS.name);
+    const email = text(body.email, LIMITS.email);
+    const company = text(body.company, LIMITS.company);
+
+    const raw = (body.answers ?? {}) as Record<string, unknown>;
+    const answers = {
+      bottleneck: pickOne(raw.bottleneck, "bottleneck"),
+      bottleneckNote: text(raw.bottleneckNote, LIMITS.note),
+      processes: pickMany(raw.processes, "processes"),
+      processesNote: text(raw.processesNote, LIMITS.note),
+      tools: pickMany(raw.tools, "tools"),
+      build: pickMany(raw.build, "build"),
+      goal: text(raw.goal, LIMITS.goal),
+      timing: pickOne(raw.timing, "timing"),
+    };
+
+    if (
+      !name ||
+      !email ||
+      !answers.bottleneck ||
+      answers.processes.length === 0 ||
+      answers.build.length === 0
+    ) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
+    if (!EMAIL_REGEX.test(email)) {
       return NextResponse.json({ error: "Invalid email" }, { status: 400 });
     }
+
+    const { subject, html } = buildContactEmail({
+      name,
+      email,
+      company,
+      answers,
+      locale: body.locale === "en" ? "EN" : "ES",
+    });
 
     const resend = new Resend(process.env.RESEND_API_KEY);
     const { error } = await resend.emails.send({
       from: "VOSTEX Contact <noreply@vostex.io>",
       to: ["hernan.provoste@vostex.io"],
       replyTo: email,
-      subject: `[VOSTEX] New contact from ${name}${company ? ` · ${company}` : ""}`,
-      html: `
-        <div style="font-family: Lato, -apple-system, sans-serif; max-width: 600px; margin: 0 auto; background: #060D1A; color: #FFFFFF; padding: 40px; border-radius: 2px;">
-          <div style="margin-bottom: 32px;">
-            <p style="color: #00C2FF; font-size: 12px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; margin: 0 0 8px;">New Contact — vostex.io</p>
-            <h1 style="font-family: 'Playfair Display', Georgia, serif; font-size: 24px; font-weight: 500; margin: 0; color: #FFFFFF;">Message from ${name}</h1>
-          </div>
-
-          <div style="background: #0D1F3C; border: 1px solid #1A2E4A; border-radius: 2px; padding: 24px; margin-bottom: 24px;">
-            <table style="width: 100%; border-collapse: collapse;">
-              <tr>
-                <td style="padding: 8px 0; color: #8A97A8; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; width: 100px;">Name</td>
-                <td style="padding: 8px 0; color: #FFFFFF; font-size: 14px;">${name}</td>
-              </tr>
-              <tr>
-                <td style="padding: 8px 0; color: #8A97A8; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;">Email</td>
-                <td style="padding: 8px 0;"><a href="mailto:${email}" style="color: #00C2FF; text-decoration: none; font-size: 14px;">${email}</a></td>
-              </tr>
-              ${
-                company
-                  ? `<tr>
-                <td style="padding: 8px 0; color: #8A97A8; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;">Company</td>
-                <td style="padding: 8px 0; color: #FFFFFF; font-size: 14px;">${company}</td>
-              </tr>`
-                  : ""
-              }
-            </table>
-          </div>
-
-          <div style="background: #0D1F3C; border: 1px solid #1A2E4A; border-radius: 2px; padding: 24px; margin-bottom: 32px;">
-            <p style="color: #8A97A8; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin: 0 0 12px;">Message</p>
-            <p style="color: #E8ECF0; font-size: 15px; line-height: 1.7; margin: 0; white-space: pre-wrap;">${message}</p>
-          </div>
-
-          <div style="border-top: 1px solid #1A2E4A; padding-top: 20px; text-align: center;">
-            <p style="color: #8A97A8; font-size: 11px; margin: 0;">VOSTEX · vostex.io · Valdivia, Chile</p>
-          </div>
-        </div>
-      `,
+      subject,
+      html,
     });
 
     if (error) {
