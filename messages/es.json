@@ -140,7 +140,6 @@
     "label": "Filosofía",
     "title": "El socio que tu negocio merece.",
     "description": "Un estudio de ingeniería de software nacido de una creencia simple: toda empresa merece tecnología que realmente trabaje para ella. No somos solo un proveedor — somos el mentor experto que acompaña tu transformación.",
-    "founder": "Fundado por Hernán Provoste · Valdivia, Chile.",
     "commitments": {
       "response": {
         "title": "Respuesta en menos de 24 horas",
@@ -152,7 +151,7 @@
       },
       "ownership": {
         "title": "Todo es tuyo",
-        "description": "El código, los datos y la infraestructura son tuyos. Sin lock-in, sin sistemas rehenes."
+        "description": "El código y los datos son tuyos. Sin lock-in, sin sistemas rehenes."
       },
       "clarity": {
         "title": "Lenguaje claro",

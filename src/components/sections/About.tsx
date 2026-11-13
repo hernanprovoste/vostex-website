@@ -19,12 +19,7 @@ export function About() {
           tone="dark"
           kicker={t("label")}
           title={t("title")}
-          lead={
-            <>
-              {t("description")}{" "}
-              <span className="text-[#E8ECF0]">{t("founder")}</span>
-            </>
-          }
+          lead={t("description")}
           className="mb-12"
         />
 

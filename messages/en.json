@@ -140,7 +140,6 @@
     "label": "Philosophy",
     "title": "The partner your business deserves.",
     "description": "A software engineering studio born from a simple belief: every business deserves technology that actually works for them. We're not just a vendor — we're the expert mentor that walks alongside your transformation.",
-    "founder": "Founded by Hernán Provoste · Valdivia, Chile.",
     "commitments": {
       "response": {
         "title": "Answers within 24 hours",
@@ -152,7 +151,7 @@
       },
       "ownership": {
         "title": "You own everything",
-        "description": "Code, data and infrastructure are yours. No lock-in, no hostage systems."
+        "description": "Code and data are yours. No lock-in, no hostage systems."
       },
       "clarity": {
         "title": "Plain language",
