@@ -1,6 +1,6 @@
 "use client";
 
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useRouter, usePathname } from "@/i18n/navigation";
 import { motion } from "framer-motion";
 
@@ -9,6 +9,7 @@ type Props = {
 };
 
 export function LanguageToggle({ appearance = "dark" }: Props) {
+  const t = useTranslations("nav");
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
@@ -40,7 +41,7 @@ export function LanguageToggle({ appearance = "dark" }: Props) {
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       className={`flex items-center gap-1.5 text-sm font-medium ${styles.base} transition-colors duration-200 min-h-[44px] min-w-[44px] px-2 cursor-pointer`}
-      aria-label={`Switch to ${locale === "en" ? "Spanish" : "English"}`}
+      aria-label={t(locale === "en" ? "lang_to_es" : "lang_to_en")}
     >
       <span className={locale === "en" ? styles.active : ""}>EN</span>
       <span className={styles.separator}>/</span>

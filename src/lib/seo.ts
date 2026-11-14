@@ -1,3 +1,5 @@
+import { routing } from "@/i18n/routing";
+
 export const SITE_URL = "https://vostex.io";
 export const LOCALES = ["en", "es"] as const;
 export type Locale = (typeof LOCALES)[number];
@@ -11,6 +13,24 @@ export function localeUrl(locale: string): string {
 export function hreflangAlternates(): Record<string, string> {
   const languages = Object.fromEntries(LOCALES.map((l) => [l, localeUrl(l)]));
   return { ...languages, "x-default": localeUrl("en") };
+}
+
+/** Inner pages that have a translated URL (see src/i18n/routing.ts). */
+export type InnerPage = "/contact";
+
+/** Absolute, translated URL of an inner page: pageUrl("es", "/contact") →
+ *  https://vostex.io/es/contacto */
+export function pageUrl(locale: string, page: InnerPage): string {
+  const path = routing.pathnames[page][locale as Locale];
+  return locale === "en" ? `${SITE_URL}${path}` : `${SITE_URL}/${locale}${path}`;
+}
+
+/** hreflang map for an inner page. */
+export function pageAlternates(page: InnerPage): Record<string, string> {
+  const languages = Object.fromEntries(
+    LOCALES.map((l) => [l, pageUrl(l, page)])
+  );
+  return { ...languages, "x-default": pageUrl("en", page) };
 }
 
 export const OG_LOCALE: Record<string, string> = {

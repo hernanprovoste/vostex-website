@@ -65,7 +65,7 @@ export function Hero() {
 
         {/* CTAs — single cyan accent + ghost */}
         <motion.div {...rise(0.24)} className="mt-11 flex flex-col sm:flex-row gap-3">
-          <GlowButton variant="cyan" onClick={() => scrollTo("contact")}>
+          <GlowButton variant="cyan" href="/contact">
             {t("cta_primary")}
             <ArrowRight size={16} strokeWidth={1.5} aria-hidden />
           </GlowButton>

@@ -2,14 +2,13 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { useTranslations } from "next-intl";
-
-const PHONE = "56992576688";
+import { WHATSAPP_PHONE } from "@/lib/contact-flow";
 
 export function WhatsAppButton() {
   const t = useTranslations("whatsapp");
   const prefersReduced = useReducedMotion();
 
-  const href = `https://wa.me/${PHONE}?text=${encodeURIComponent(t("message"))}`;
+  const href = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(t("message"))}`;
 
   return (
     <motion.a

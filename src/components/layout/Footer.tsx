@@ -1,15 +1,16 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import { Link } from "@/i18n/navigation";
 
 export function Footer() {
   const t = useTranslations("footer");
   const tNav = useTranslations("nav");
 
   const links = [
-    { key: "capabilities", href: "#capabilities" },
-    { key: "work", href: "#work" },
-    { key: "philosophy", href: "#about" },
-    { key: "contact", href: "#contact" },
+    { key: "capabilities", href: { pathname: "/", hash: "capabilities" } },
+    { key: "work", href: { pathname: "/", hash: "work" } },
+    { key: "philosophy", href: { pathname: "/", hash: "about" } },
+    { key: "contact", href: "/contact" },
   ] as const;
 
   const year = new Date().getFullYear();
@@ -34,13 +35,13 @@ export function Footer() {
         <div className="mt-10 pt-6 border-t border-[#E8ECF0]/14 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div className="flex flex-wrap gap-x-8 gap-y-3">
             {links.map((link) => (
-              <a
+              <Link
                 key={link.key}
                 href={link.href}
                 className="text-[0.78rem] uppercase tracking-[0.1em] text-[#8A97A8] hover:text-[#E8ECF0] transition-colors duration-150"
               >
                 {tNav(link.key)}
-              </a>
+              </Link>
             ))}
           </div>
 

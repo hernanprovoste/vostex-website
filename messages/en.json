@@ -5,7 +5,12 @@
     "philosophy": "Philosophy",
     "contact": "Contact",
     "cta": "Get in touch",
-    "skip": "Skip to content"
+    "skip": "Skip to content",
+    "home_aria": "VOSTEX — Home",
+    "menu_open": "Open menu",
+    "menu_close": "Close menu",
+    "lang_to_en": "Switch to English",
+    "lang_to_es": "Switch to Spanish"
   },
   "whatsapp": {
     "aria_label": "Chat on WhatsApp",
@@ -14,13 +19,15 @@
   "seo": {
     "title": "VOSTEX — Engineered systems for real-world operations",
     "description": "Software engineering studio in Valdivia, Chile. We design and build custom software, platforms and automations so your business runs with clarity, speed and control.",
-    "ogAlt": "VOSTEX — Engineered systems for real-world operations"
+    "ogAlt": "VOSTEX — Engineered systems for real-world operations",
+    "contact_title": "Tell us about your project — VOSTEX",
+    "contact_description": "Answer a few quick questions about your operation and a VOSTEX engineer will write back within 24 hours with a first step, no strings attached."
   },
   "hero": {
     "tagline": "Software Engineering Studio — Valdivia, Chile",
     "headline": "Engineered systems for <em>real-world</em> operations.",
     "subheadline": "We design and build custom software, platforms and automations so your business runs with clarity, speed and control.",
-    "cta_primary": "Book a strategy call",
+    "cta_primary": "Tell us about your project",
     "cta_secondary": "Selected work",
     "stats": {
       "ownership": { "num": "100%", "label": "Code & data you own" },
@@ -140,7 +147,6 @@
     "label": "Philosophy",
     "title": "The partner your business deserves.",
     "description": "A software engineering studio born from a simple belief: every business deserves technology that actually works for them. We're not just a vendor — we're the expert mentor that walks alongside your transformation.",
-    "founder": "Founded by Hernán Provoste · Valdivia, Chile.",
     "commitments": {
       "response": {
         "title": "Answers within 24 hours",
@@ -152,7 +158,7 @@
       },
       "ownership": {
         "title": "You own everything",
-        "description": "Code, data and infrastructure are yours. No lock-in, no hostage systems."
+        "description": "Code and data are yours. No lock-in, no hostage systems."
       },
       "clarity": {
         "title": "Plain language",
@@ -161,9 +167,122 @@
     }
   },
   "contact": {
-    "label": "Get in Touch",
+    "label": "Let's talk",
     "title": "Let's build something.",
-    "subtitle": "Tell us how your operation works today and where you want it to be. We'll map your systems and suggest a first step — no obligation.",
+    "subtitle": "Tell us how your operation works with a few quick questions (about 3 minutes). That way we arrive at the first conversation with concrete ideas, no strings attached.",
+    "cta": "Start (3 min)",
+    "page": {
+      "back": "Back to home",
+      "calm": "Take your time: you can go back and change any answer before sending."
+    },
+    "next": {
+      "title": "What happens next",
+      "items": {
+        "review": {
+          "title": "We review your answers",
+          "description": "An engineer studies your operation before writing to you."
+        },
+        "reply": {
+          "title": "We reply within 24 hours",
+          "description": "With specific questions or a proposed first step."
+        },
+        "talk": {
+          "title": "We talk, no commitment",
+          "description": "If it makes sense, we map your processes together."
+        }
+      }
+    },
+    "direct": {
+      "text": "Prefer to talk directly?",
+      "cta": "Message us on WhatsApp"
+    },
+    "flow": {
+      "progress": "Step {current} of {total}",
+      "back": "Back",
+      "next": "Continue",
+      "skip": "Skip",
+      "optional": "Optional",
+      "err_single": "Choose an option to continue",
+      "err_multi": "Choose at least one option to continue",
+      "done_title": "Thank you! We got your answers.",
+      "done_text": "An engineer will review them and write to you within 24 hours with a proposed first step.",
+      "done_cta": "Write on WhatsApp",
+      "steps": {
+        "bottleneck": {
+          "question": "What is the main bottleneck in your operation today?",
+          "hint": "Pick the one that hurts the most: what costs you time or money.",
+          "note_label": "Want to tell us more?",
+          "note_placeholder": "For example: where it gets stuck, how long it takes, what errors show up.",
+          "options": {
+            "manual": "Lots of manual work and spreadsheets",
+            "visibility": "I don't see the numbers in time",
+            "people": "Everything depends on a few people",
+            "disconnected": "My tools don't talk to each other",
+            "customers": "Serving and selling to customers overwhelms us",
+            "other": "Other"
+          }
+        },
+        "processes": {
+          "question": "Which processes do you want to improve?",
+          "hint": "You can pick several.",
+          "note_label": "Tell us how it works today",
+          "note_placeholder": "Describe the process step by step, even if it's messy.",
+          "options": {
+            "sales": "Sales and orders",
+            "inventory": "Inventory and purchasing",
+            "billing": "Invoicing and collections",
+            "support": "Customer support and after-sales",
+            "operations": "Production and operations",
+            "reporting": "Reports and KPIs",
+            "team": "Team and task management",
+            "other": "Other"
+          }
+        },
+        "tools": {
+          "question": "What do you use to manage this today?",
+          "hint": "Pick everything you use.",
+          "options": {
+            "sheets": "Spreadsheets (Excel, Google Sheets)",
+            "messaging": "WhatsApp and email",
+            "generic": "Off-the-shelf software (ERP, CRM, etc.)",
+            "legacy": "An old in-house system",
+            "paper": "Paper and notebooks",
+            "none": "Nothing formal yet"
+          }
+        },
+        "build": {
+          "question": "What do you think you need?",
+          "hint": "Not sure? Pick the last option and we'll define it together.",
+          "options": {
+            "internal": "An internal system for my team",
+            "portal": "A portal or platform for my customers",
+            "dashboard": "Dashboards and reports",
+            "automation": "Automating tasks and connecting tools",
+            "web": "A website or landing page",
+            "unsure": "I don't know yet, help me define it"
+          }
+        },
+        "goal": {
+          "question": "If this goes well, what changes in your day to day?",
+          "hint": "Tell us how you imagine we could help and what result would make it worth it.",
+          "placeholder": "For example: closing the month in 1 day instead of 5, or my team no longer duplicating data."
+        },
+        "timing": {
+          "question": "When do you need it?",
+          "hint": "Just a reference so we can prioritize.",
+          "options": {
+            "asap": "As soon as possible",
+            "quarter": "In 1 to 3 months",
+            "semester": "In 3 to 6 months",
+            "exploring": "I'm just exploring"
+          }
+        },
+        "contact": {
+          "question": "Who should we reply to?",
+          "hint": "An engineer reviews your answers and writes back within 24 hours."
+        }
+      }
+    },
     "form": {
       "name": "Name",
       "name_placeholder": "Your name",
@@ -171,16 +290,13 @@
       "email_placeholder": "you@company.com",
       "company": "Company",
       "company_placeholder": "Your company name",
-      "message": "Message",
-      "message_placeholder": "Tell us about your project, processes and goals.",
-      "submit": "Send message",
+      "submit": "Send answers",
       "submitting": "Sending…",
-      "success": "Message sent! We'll be in touch soon.",
+      "success": "Answers sent! We'll be in touch soon.",
       "error": "Something went wrong. Please try again.",
       "err_name": "Name is required",
       "err_email_required": "Email is required",
       "err_email_invalid": "Enter a valid email",
-      "err_message": "Message is required",
       "err_captcha": "Please complete the verification"
     }
   },
