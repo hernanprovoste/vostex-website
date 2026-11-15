@@ -15,6 +15,8 @@ import {
   professionalServiceJsonLd,
 } from "@/lib/seo";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
+import { Analytics } from "@vercel/analytics/next";
+import { AttributionCapture } from "@/components/analytics/AttributionCapture";
 import "../globals.css";
 
 const playfair = Playfair_Display({
@@ -122,6 +124,8 @@ export default async function LocaleLayout({ children, params }: Props) {
             }}
           />
         </NextIntlClientProvider>
+        <AttributionCapture />
+        <Analytics />
       </body>
     </html>
   );

@@ -52,10 +52,7 @@ export function organizationJsonLd() {
       addressLocality: "Valdivia",
       addressCountry: "CL",
     },
-    sameAs: [
-      "https://linkedin.com/company/vostex",
-      "https://github.com/vostex",
-    ],
+    sameAs: ["https://github.com/vostex-cl"],
   };
 }
 

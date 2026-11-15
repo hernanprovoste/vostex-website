@@ -5,6 +5,18 @@ import {
   type Answers,
   type OptionField,
 } from "./contact-flow";
+import type { Attribution, AttributionField } from "./attribution";
+
+/** Spanish labels for the "where did this lead come from" block. */
+const ATTRIBUTION_LABELS: Record<AttributionField, string> = {
+  source: "Fuente",
+  medium: "Medio",
+  campaign: "Campaña",
+  term: "Término",
+  content: "Contenido",
+  referrer: "Referente",
+  landing: "Página de entrada",
+};
 
 /** Escape text before interpolating it into the HTML email. */
 export function esc(value: string): string {
@@ -50,8 +62,9 @@ export function buildContactEmail(input: {
   company: string;
   answers: Answers;
   locale: "ES" | "EN";
+  attribution?: Attribution;
 }): { subject: string; html: string } {
-  const { name, email, company, answers, locale } = input;
+  const { name, email, company, answers, locale, attribution = {} } = input;
 
   const list = (field: OptionField, keys: string[]) =>
     keys.map((k) => `• ${esc(labelOf(field, k))}`).join("\n");
@@ -94,6 +107,25 @@ export function buildContactEmail(input: {
     );
   }
 
+  const originRows = (Object.keys(ATTRIBUTION_LABELS) as AttributionField[])
+    .filter((key) => attribution[key])
+    .map(
+      (key) => `<tr>
+            <td style="${ROW} width: 140px;">${esc(ATTRIBUTION_LABELS[key])}</td>
+            <td style="padding: 8px 0; color: #E8ECF0; font-size: 13px;">${esc(attribution[key] ?? "")}</td>
+          </tr>`
+    )
+    .join("");
+  const originBlock = `
+      <div style="border: 1px solid #1A2E4A; border-radius: 2px; padding: 16px 24px; margin-top: 12px;">
+        <p style="color: #8A97A8; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin: 0 0 4px;">Origen del contacto</p>
+        ${
+          originRows
+            ? `<table style="width: 100%; border-collapse: collapse;">${originRows}</table>`
+            : `<p style="color: #E8ECF0; font-size: 13px; margin: 8px 0 0;">Sin datos (navegador sin almacenamiento o visita sin origen registrado)</p>`
+        }
+      </div>`;
+
   const subject = oneLine(
     `[VOSTEX] Nuevo contacto de ${name}${company ? ` · ${company}` : ""}`
   );
@@ -127,6 +159,8 @@ export function buildContactEmail(input: {
       </div>
 
       ${blocks.join("\n")}
+
+      ${originBlock}
 
       <div style="border-top: 1px solid #1A2E4A; padding-top: 20px; margin-top: 20px; text-align: center;">
         <p style="color: #8A97A8; font-size: 11px; margin: 0;">VOSTEX · vostex.io · Valdivia, Chile</p>

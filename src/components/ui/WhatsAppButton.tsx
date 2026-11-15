@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { WHATSAPP_PHONE } from "@/lib/contact-flow";
+import { trackEvent } from "@/lib/analytics";
 
 export function WhatsAppButton() {
   const t = useTranslations("whatsapp");
@@ -16,6 +17,7 @@ export function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={t("aria_label")}
+      onClick={() => trackEvent("whatsapp_click", { placement: "floating" })}
       whileTap={prefersReduced ? undefined : { scale: 0.94 }}
       transition={{ duration: 0.12, ease: [0.2, 0, 0, 1] }}
       className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-40 flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] text-white shadow-lg hover:bg-[#20BD5A] transition-colors duration-150"

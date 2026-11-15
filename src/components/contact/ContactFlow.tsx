@@ -6,6 +6,8 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { toast } from "sonner";
 import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
 import { GlowButton } from "@/components/ui/GlowButton";
+import { trackEvent } from "@/lib/analytics";
+import { getStoredAttribution } from "@/lib/attribution";
 import {
   EMAIL_REGEX,
   EMPTY_ANSWERS,
@@ -175,6 +177,7 @@ export function ContactFlow() {
   // mismatch). Deferred with a timer (which also runs in background tabs,
   // unlike animation frames) instead of setting state synchronously.
   const restored = useRef(false);
+  const lastTracked = useRef(-1);
   useEffect(() => {
     const id = setTimeout(() => {
       const draft = readDraft();
@@ -182,10 +185,21 @@ export function ContactFlow() {
         setIndex(draft.index);
         setAnswers(draft.answers);
       }
+      const start = draft?.index ?? 0;
+      lastTracked.current = start;
+      trackEvent("contact_step", { step: STEPS[start].id, index: start + 1 });
       restored.current = true;
     }, 0);
     return () => clearTimeout(id);
   }, []);
+
+  // Funnel: one event each time a new card is shown (after the restore above
+  // has reported the starting card), to see where visitors drop off.
+  useEffect(() => {
+    if (!restored.current || lastTracked.current === index) return;
+    lastTracked.current = index;
+    trackEvent("contact_step", { step: STEPS[index].id, index: index + 1 });
+  }, [index]);
 
   // Save the draft as the visitor goes. Skipped until the restore above has
   // run, so an empty first render can never overwrite a saved draft.
@@ -301,11 +315,16 @@ export function ContactFlow() {
           company: contact.company.trim(),
           answers,
           locale,
+          attribution: getStoredAttribution(),
           website: honeypot.current?.value ?? "", // honeypot
           turnstileToken: token,
         }),
       });
       if (!res.ok) throw new Error();
+      trackEvent("contact_submit", {
+        result: "success",
+        source: getStoredAttribution().source ?? "unknown",
+      });
       try {
         sessionStorage.removeItem(DRAFT_KEY);
       } catch {
@@ -314,6 +333,10 @@ export function ContactFlow() {
       shouldFocus.current = true;
       setDone(true);
     } catch {
+      trackEvent("contact_submit", {
+        result: "error",
+        source: getStoredAttribution().source ?? "unknown",
+      });
       toast.error(tForm("error"), { duration: 5000 });
       turnstile.current?.reset();
       setToken("");
@@ -558,6 +581,9 @@ export function ContactFlow() {
             target="_blank"
             rel="noopener noreferrer"
             variant="ghost"
+            onClick={() =>
+              trackEvent("whatsapp_click", { placement: "flow_done" })
+            }
           >
             {tFlow("done_cta")} <span aria-hidden>→</span>
           </GlowButton>
