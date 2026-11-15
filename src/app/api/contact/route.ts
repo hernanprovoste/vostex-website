@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { buildContactEmail } from "@/lib/contact-email";
+import { sanitizeAttribution } from "@/lib/attribution";
 import {
   EMAIL_REGEX,
   LIMITS,
@@ -129,6 +130,7 @@ export async function POST(req: Request) {
       company,
       answers,
       locale: body.locale === "en" ? "EN" : "ES",
+      attribution: sanitizeAttribution(body.attribution),
     });
 
     const resend = new Resend(process.env.RESEND_API_KEY);

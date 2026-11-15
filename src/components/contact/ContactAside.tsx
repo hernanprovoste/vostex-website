@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import { WHATSAPP_PHONE } from "@/lib/contact-flow";
+import { WhatsAppLink } from "@/components/analytics/WhatsAppLink";
 
 const nextKeys = ["review", "reply", "talk"] as const;
 
@@ -51,14 +52,13 @@ export function DirectContact() {
   return (
     <p className="text-[0.9rem] text-[#4A5568]">
       {t("direct.text")}{" "}
-      <a
+      <WhatsAppLink
         href={href}
-        target="_blank"
-        rel="noopener noreferrer"
+        placement="contact_aside"
         className="link-arrow text-[#0D1F3C] ml-1"
       >
         {t("direct.cta")} <span className="ar">→</span>
-      </a>
+      </WhatsAppLink>
     </p>
   );
 }

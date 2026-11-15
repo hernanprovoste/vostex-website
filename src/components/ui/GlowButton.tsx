@@ -79,13 +79,19 @@ export function GlowButton({
       typeof href === "string" && (!href.startsWith("/") || href.startsWith("//"));
     if (external) {
       return (
-        <a href={href as string} target={target} rel={rel} className="inline-flex">
+        <a
+          href={href as string}
+          target={target}
+          rel={rel}
+          onClick={onClick}
+          className="inline-flex"
+        >
           {content}
         </a>
       );
     }
     return (
-      <Link href={href as InternalHref} className="inline-flex">
+      <Link href={href as InternalHref} onClick={onClick} className="inline-flex">
         {content}
       </Link>
     );
