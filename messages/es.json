@@ -300,6 +300,14 @@
       "err_captcha": "Por favor completa la verificación"
     }
   },
+  "notfound": {
+    "title_tag": "Página no encontrada — VOSTEX",
+    "label": "Error 404",
+    "title": "Esta página no existe.",
+    "text": "Puede que el enlace esté roto o que la página haya cambiado de lugar. Vuelve al inicio o cuéntanos tu proyecto.",
+    "home": "Volver al inicio",
+    "contact": "Cuéntanos tu proyecto"
+  },
   "footer": {
     "crafted": "Hecho en Valdivia, Chile"
   }
